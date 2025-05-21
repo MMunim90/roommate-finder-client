@@ -1,0 +1,21 @@
+@import url('https://fonts.googleapis.com/css2?family=Ancizar+Sans:ital,wght@0,100..1000;1,100..1000&display=swap');
+
+@import "tailwindcss";
+@plugin "daisyui"{
+    themes: light --default;
+}
+
+@plugin "daisyui/theme" {
+    name: "light";
+    default: true;
+    --color-primary: #403F3F;
+    --color-secondary: #44576D;
+    --color-base-200: #F3F3F3;
+    --color-base-300: #E7E7E7;
+    --color-accent: #706F6F;
+  }
+
+
+* {
+    font-family: "Ancizar Sans", sans-serif;
+  }
