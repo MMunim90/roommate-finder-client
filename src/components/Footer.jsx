@@ -26,7 +26,7 @@ const Footer = () => {
           <div className="flex gap-6 items-center">
             <img
               className="w-15 h-15 rounded-2xl"
-              src="https://i.ibb.co.com/CK69Q7Bn/Subscription-Box.jpg"
+              src="https://i.ibb.co/WNpY4jYv/logo.png"
               alt=""
             />
             <p>
@@ -34,7 +34,7 @@ const Footer = () => {
                 Find Mate!
               </span>
               <br />
-              Providing Subscription packages since 2022
+              Find Your Perfect Roommate with Find Mate!
             </p>
           </div>
 

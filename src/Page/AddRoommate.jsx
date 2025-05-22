@@ -145,7 +145,7 @@ const AddRoommate = () => {
           </fieldset>
         </div>
 
-        <div className="flex justify-center items-center gap-6 mt-6">
+        <div className="flex justify-center items-center gap-6 mt-10">
           <input
           type="submit"
           className="btn bg-[#D2B48C] text-lg border-black border-2"
