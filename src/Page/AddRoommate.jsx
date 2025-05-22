@@ -34,7 +34,7 @@ const AddRoommate = () => {
       });
   };
   return (
-    <div className="p-4 md:p-28 bg-[url(https://i.ibb.co/q3j15yY0/11.png)] bg-cover bg-no-repeat pb-20">
+    <div className="p-4 md:p-28 pb-20">
       <div className="p-4 space-y-4 flex flex-col mb-6">
         <h1 className="text-4xl lg:text-6xl text-center">Add To Find Roommate</h1>
         <p className="text-center text-2xl">
@@ -148,7 +148,7 @@ const AddRoommate = () => {
         <div className="flex justify-center items-center gap-6 mt-10">
           <input
           type="submit"
-          className="btn bg-[#D2B48C] text-lg border-black border-2"
+          className="btn bg-secondary text-white text-lg border-black border-2"
           value="Add"
         />
         <h1 className="btn font-bold text-lg border-black border-2">

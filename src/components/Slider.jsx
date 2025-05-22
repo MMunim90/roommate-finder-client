@@ -3,6 +3,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/swiper-bundle.css";
 import { Navigation, Pagination, Scrollbar, A11y } from "swiper/modules";
 import { EffectFade } from "swiper/modules";
+import { Typewriter } from 'react-simple-typewriter'
 
 const Slider = () => {
   return (
@@ -25,7 +26,10 @@ const Slider = () => {
         >
           <div className="absolute inset-0 flex items-center justify-center">
             <p className="text-white text-center">
-              <span className="font-bold text-3xl md:text-5xl lg:text-7xl">Best Roommate Finder in Bangladesh</span><br />
+              {
+
+              }
+              <span className="font-bold text-3xl md:text-5xl lg:text-7xl"><Typewriter words={['Best', 'Roommate', 'finder', 'in', 'Bangladesh']} loop={Infinity} cursor cursorStyle='_' typeSpeed={70} deleteSpeed={50}/></span><br />
               Find Your Perfect Roommate Easily with Bangladesh's Top Matching Platform
             </p>
           </div>
@@ -42,7 +46,7 @@ const Slider = () => {
         >
           <div className="absolute inset-0 flex items-center justify-center">
           <p className="text-white text-center">
-              <span className="font-bold text-3xl md:text-5xl lg:text-7xl">Find Best Room</span><br />
+              <span className="font-bold text-3xl md:text-5xl lg:text-7xl"><Typewriter words={['Find', 'Best', 'Room']} loop={Infinity} cursor cursorStyle='_' typeSpeed={70} deleteSpeed={50}/></span><br />
               Find a room you like in any major city in Bangladesh.</p>
           </div>
         </div>
@@ -57,7 +61,7 @@ const Slider = () => {
           }}
         >
           <div className="absolute inset-0 flex items-center justify-center">
-          <p className="text-white text-center"><span className="font-bold text-3xl md:text-5xl lg:text-7xl">At Minimum Cost</span><br />Find a room within your means.<br />
+          <p className="text-white text-center"><span className="font-bold text-3xl md:text-5xl lg:text-7xl"><Typewriter words={['At', 'Minimum', 'Cost',]} loop={Infinity} cursor cursorStyle='_' typeSpeed={70} deleteSpeed={50}/></span><br />Find a room within your means.<br />
             </p>
           </div>
         </div>
@@ -72,8 +76,8 @@ const Slider = () => {
           }}
         >
           <div className="absolute inset-0 flex items-center justify-center">
-          <p className="text-white text-center">
-              <span className="font-bold text-3xl md:text-5xl lg:text-7xl">Stay Healthy</span><br />
+          <p className="text-center text-secondary">
+              <span className="font-bold text-3xl md:text-5xl lg:text-7xl"><Typewriter words={['Stay', 'Healthy']} loop={Infinity} cursor cursorStyle='_' typeSpeed={70} deleteSpeed={50}/></span><br />
               Stay healthy and comfortable in your new room with perfect amenities and a peaceful environment always.</p>
           </div>
         </div>
