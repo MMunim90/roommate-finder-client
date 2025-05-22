@@ -4,8 +4,9 @@ import { toast } from 'react-toastify';
 import { AuthContext } from '../Provider/AuthProvider';
 import { SiBookmyshow } from 'react-icons/si';
 import { CgBrowse } from 'react-icons/cg';
-import { MdPlaylistAddCircle } from 'react-icons/md';
+import { MdDarkMode, MdPlaylistAddCircle } from 'react-icons/md';
 import { FaHome } from 'react-icons/fa';
+import { BiLogOut } from 'react-icons/bi';
 
 const Navbar = () => {
   const {user, logOut} = use(AuthContext)
@@ -82,10 +83,10 @@ const Navbar = () => {
       </div>
       <ul
         tabIndex={0}
-        className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
+        className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow space-y-2">
         <li><a className='text-2xl font-bold text-secondary'>User : {user && user.displayName}</a></li>
-        <button className='cursor-pointer'>Dark Mode</button>
-        <button className='cursor-pointer'>Log out</button> {/* onClick={handleLogOut}*/}
+        <button className='btn bg-secondary text-white cursor-pointer'><MdDarkMode />Dark Mode</button>
+        <button className='btn bg-secondary text-white cursor-pointer'><BiLogOut />Log out</button> {/* onClick={handleLogOut}*/}
       </ul>
     </div>
   </div>
