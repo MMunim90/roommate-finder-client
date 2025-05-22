@@ -1,12 +1,19 @@
-# React + Vite
+# Website name : Find Mate
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Live site URL : 
 
-Currently, two official plugins are available:
+<!-- client side url : https://github.com/Programming-Hero-Web-Course4/b11a10-client-side-MMunim90 -->
+<!-- server side url : https://github.com/Programming-Hero-Web-Course4/b11a10-server-side-MMunim90 -->
+<!-- Live side url :  -->
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Features : 
 
-## Expanding the ESLint configuration
+- secure login and registration process with firebase, 
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- private routing system,
+
+- Room Ad details sections,
+
+- mongodb,
+
+- CRUD Method.

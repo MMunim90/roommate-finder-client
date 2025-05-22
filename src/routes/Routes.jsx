@@ -9,6 +9,7 @@ import Home from "../Page/Home";
 import PrivateRoute from "../Provider/PrivateRoute";
 import AddRoommate from "../Page/AddRoommate";
 import UpdateRoommate from "../Page/UpdateRoommate";
+import AdDetails from "../Page/AdDetails";
 
 const router = createBrowserRouter([
   {
@@ -25,7 +26,6 @@ const router = createBrowserRouter([
         },
         {
             path: '/addRoommate',
-            hydrateFallbackElement: <Loading></Loading>,
             element: (
                 // <PrivateRoute>
                     <AddRoommate></AddRoommate>
@@ -34,13 +34,19 @@ const router = createBrowserRouter([
         },
         {
             path: '/updateRoommate',
-            hydrateFallbackElement: <Loading></Loading>,
             element: (
                 // <PrivateRoute>
                     <UpdateRoommate></UpdateRoommate>
                 // </PrivateRoute>
             ),
-        }
+        },
+        {
+        path: "ad/:id",
+        loader: ({ params }) =>
+          fetch(`http://localhost:3000/allAds/${params.id}`),
+        element: <AdDetails></AdDetails>,
+        hydrateFallbackElement: <Loading></Loading>
+      },
     ]
   },
 //   {

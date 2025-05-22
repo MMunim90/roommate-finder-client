@@ -68,11 +68,11 @@ const Navbar = () => {
   </div>
   <div className="navbar-end">
   <div className="flex gap-4 items-center">
+    <div className='text-white font-bold btn btn-outline border-secondary hover:bg-secondary btn-info rounded-xl cursor-pointer'>
+    {user ? "" : <Link className='cursor-pointer'>Signup</Link>} {/* to="/auth/login"*/}
+    </div>
     <div className='text-white font-bold btn border-none bg-secondary rounded-lg cursor-pointer'>
   {user ? "" : <Link className='cursor-pointer'>Login</Link>} {/* to="/auth/login"*/}
-    </div>
-    <div className='text-white font-bold btn btn-outline border-secondary btn-info rounded-xl cursor-pointer'>
-    {user ? "" : <Link className='cursor-pointer'>Signup</Link>} {/* to="/auth/login"*/}
     </div>
     <div className="dropdown dropdown-hover dropdown-end">
       <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">

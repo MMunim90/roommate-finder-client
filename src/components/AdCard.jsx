@@ -23,7 +23,7 @@ const AdCard = ({ ad }) => {
           </div>
         </div>
         <div className="w-full text-white cursor-pointer py-2 rounded-xl bg-secondary text-center">
-          <Link>See more</Link> {/*to={`/news-details/${id}`}*/}
+          <Link to={`/ad/${_id}`}>See more</Link> {/*to={`/news-details/${id}`}*/}
         </div>
       </div>
     </div>
