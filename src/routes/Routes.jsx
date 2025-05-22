@@ -10,6 +10,9 @@ import PrivateRoute from "../Provider/PrivateRoute";
 import AddRoommate from "../Page/AddRoommate";
 import UpdateRoommate from "../Page/UpdateRoommate";
 import AdDetails from "../Page/AdDetails";
+import ErrorPage from "../Page/ErrorPage";
+import Register from "../Page/Register";
+import Login from "../Page/Login";
 
 const router = createBrowserRouter([
   {
@@ -44,8 +47,24 @@ const router = createBrowserRouter([
         path: "ad/:id",
         loader: ({ params }) =>
           fetch(`http://localhost:3000/allAds/${params.id}`),
-        element: <AdDetails></AdDetails>,
+        element: (
+            // <PrivateRoute>
+                <AdDetails></AdDetails>
+            // </PrivateRoute>
+        ),
         hydrateFallbackElement: <Loading></Loading>
+      },
+      {
+        path: 'login',
+        element: <Login></Login>
+      },
+      {
+        path: 'register',
+        element: <Register></Register>
+      },
+      {
+        path: "/*",
+        element: <ErrorPage></ErrorPage>
       },
     ]
   },

@@ -25,9 +25,9 @@ const AuthProvider = ({children}) => {
         return signInWithEmailAndPassword(auth, email, password);
     }
 
-    const updateUserProfile = (updatedData) => {
-        return updateProfile(auth.currentUser, updatedData);
-    };
+    // const updateUserProfile = (updatedData) => {
+    //     return updateProfile(auth.currentUser, updatedData);
+    // };
 
     const logOut = () => {
         setLoading(true)
@@ -54,7 +54,7 @@ const AuthProvider = ({children}) => {
         signIn,
         loading,
         setLoading,
-        updateUserProfile,
+        // updateUserProfile,
         signInWithGoogle,
     }
     return <AuthContext value={authData}>

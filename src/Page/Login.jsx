@@ -3,6 +3,7 @@ import { FcGoogle } from "react-icons/fc";
 import { Link, useLocation, useNavigate } from "react-router";
 import { AuthContext } from "../Provider/AuthProvider";
 import { toast } from "react-toastify";
+import Swal from "sweetalert2";
 
 const Login = () => {
   const [error, setError] = useState("");
@@ -22,7 +23,11 @@ const Login = () => {
     signIn(email, password)
       .then((result) => {
         const user = result.user;
-        toast.success(`${user.displayName} Logged In Successfully`);
+        Swal.fire({
+          title: `${user.displayName} Login successful`,
+          icon: "success",
+          draggable: true,
+        });
         navigate(`${location.state ? location.state : "/"}`);
       })
       .catch((error) => {
@@ -40,7 +45,11 @@ const Login = () => {
         // console.log(result)
         const user = result.user;
         navigate("/");
-        toast.success(`${user.displayName} Logged In Successfully`);
+        Swal.fire({
+          title: `${user.displayName} Login successful`,
+          icon: "success",
+          draggable: true,
+        });
         navigate(`${location.state ? location.state : "/"}`);
       })
       .catch((error) => {
@@ -52,8 +61,7 @@ const Login = () => {
   };
 
   return (
-    <div className="w-full max-w-md p-8 space-y-3 rounded-xl bg-gray-400 mt-4 mx-auto">
-      
+    <div className="w-full max-w-md p-8 space-y-3 rounded-xl bg-gray-400 my-10 mx-auto">
       <h1 className="text-2xl font-bold text-center">Login</h1>
       <form onSubmit={handleLogin} className="space-y-6">
         <div className="space-y-1 text-sm">
@@ -79,37 +87,37 @@ const Login = () => {
             required
             className="w-full px-4 py-3 rounded-md border-gray-300 bg-gray-50 text-gray-800"
           />
-          <div className="flex justify-end text-xs text-gray-600 hover:underline">
+          {/* <div className="flex justify-end text-xs text-gray-600 hover:underline">
             <Link to="/auth/forgetPass" rel="noopener noreferrer">
               Forgot Password?
             </Link>
-          </div>
+          </div> */}
 
           {error && <p className="text-red-600 text-xs">{error}</p>}
         </div>
         <button
           type="submit"
-          className="block w-full p-3 text-center rounded-sm bg-secondary cursor-pointer"
+          className="block w-full p-3 text-center text-white text-2xl font-bold rounded-sm bg-secondary cursor-pointer"
         >
           Log in
         </button>
       </form>
       <div className="flex items-center pt-4 space-x-1">
         <div className="flex-1 h-px sm:w-16 dark:bg-gray-300"></div>
-        <p className="px-3 text-sm text-gray-700 font-bold">OR</p>
+        <p className="px-3 text-gray-700 text-2xl font-bold">OR</p>
         <div className="flex-1 h-px sm:w-16 dark:bg-gray-300"></div>
       </div>
       <div className="flex justify-center space-x-4 my-6">
         <button
           onClick={handleGoogleSignIn}
-          className="btn btn-outline btn-secondary w-full"
+          className="btn btn-outline text-xl btn-secondary w-full"
         >
           <FcGoogle size={24} /> Login With Google
         </button>
       </div>
-      <p className="text-xs text-center sm:px-6 dark:text-gray-600">
+      <p className="text-md text-center sm:px-6 dark:text-gray-600">
         Don't have an account?
-        <Link to="/auth/register" className="underline text-gray-800">
+        <Link to="/register" className="underline text-gray-800">
           Register
         </Link>
       </p>

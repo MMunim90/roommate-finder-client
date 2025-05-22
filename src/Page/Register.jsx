@@ -1,4 +1,4 @@
-import React, { use, useState } from "react";
+import React, { use, useEffect, useState } from "react";
 import { FaEye } from "react-icons/fa";
 import { FaEyeSlash } from "react-icons/fa6";
 import { FcGoogle } from "react-icons/fc";
@@ -30,12 +30,6 @@ const Register = () => {
     } else if (!/(?=.*[A-Z])/.test(password)) {
       setPasswordError("at least one uppercase.");
       return;
-    } else if (!/(?=.*\d)/.test(password)) {
-        setPasswordError("at least one digit.");
-        return;
-    } else if (!/(?=.*[@$!%*?&])/.test(password)) {
-        setPasswordError("at least one special character.");
-        return;
     } else {
         setPasswordError("");
     }
@@ -77,7 +71,11 @@ const Register = () => {
         // console.log(result)
         const user = result.user;
         navigate("/");
-        toast.success(`${user.displayName} SignUp successful`);
+        Swal.fire({
+                  title: `${user.displayName} SignUp successful`,
+                  icon: "success",
+                  draggable: true,
+                });
       })
       .catch((error) => {
         const errorCode = error.code;
@@ -86,8 +84,21 @@ const Register = () => {
         toast.error(errorCode, errorMessage);
       });
   };
+
+  useEffect(() => {
+  if (passwordError) {
+    Swal.fire({
+      title: passwordError,
+      icon: "error",
+      draggable: true,
+    }).then(() => {
+      // Clear error after clicking OK
+      setPasswordError(""); // You must define setPasswordError from useState
+    });
+  }
+}, [passwordError]);
   return (
-    <div className="w-full max-w-md p-8 space-y-3 rounded-xl bg-gray-400 mt-4 mx-auto">
+    <div className="w-full max-w-md p-8 space-y-3 rounded-xl bg-gray-400 mx-auto my-10">
     
       <h1 className="text-2xl font-bold text-center">Register</h1>
       <form onSubmit={handleRegister} className="space-y-6">
@@ -158,27 +169,27 @@ const Register = () => {
         </div>
         <button
           type="submit"
-          className="block w-full p-3 text-center rounded-sm bg-secondary cursor-pointer"
+          className="block w-full p-3 text-center text-white text-2xl font-bold rounded-sm bg-secondary cursor-pointer"
         >
           Register
         </button>
       </form>
       <div className="flex items-center pt-4 space-x-1">
         <div className="flex-1 h-px sm:w-16 dark:bg-gray-300"></div>
-        <p className="px-3 text-sm text-gray-700 font-bold">OR</p>
+        <p className="px-3 text-gray-700 text-2xl font-bold">OR</p>
         <div className="flex-1 h-px sm:w-16 dark:bg-gray-300"></div>
       </div>
       <div className="flex justify-center space-x-4 my-6">
         <button
           onClick={handleGoogleSignIn}
-          className="btn btn-outline btn-secondary w-full"
+          className="btn btn-outline text-xl btn-secondary w-full"
         >
           <FcGoogle size={24} /> Register With Google
         </button>
       </div>
-      <p className="text-xs text-center sm:px-6 dark:text-gray-600">
+      <p className="text-md text-center sm:px-6 dark:text-gray-600">
         Already have an account?
-        <Link to="/auth/login" className="underline text-gray-800">
+        <Link to="/login" className="underline text-gray-800">
           Log in
         </Link>
       </p>
