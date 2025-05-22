@@ -19,23 +19,27 @@ const router = createBrowserRouter([
     children:[
         {
             index: true,
-            element: <Home></Home>
+            element: <Home></Home>,
+            loader: () => fetch('http://localhost:3000/allAds'),
+            hydrateFallbackElement: <Loading></Loading>
         },
         {
             path: '/addRoommate',
+            hydrateFallbackElement: <Loading></Loading>,
             element: (
                 // <PrivateRoute>
                     <AddRoommate></AddRoommate>
                 // </PrivateRoute>
-            )
+            ),
         },
         {
             path: '/updateRoommate',
+            hydrateFallbackElement: <Loading></Loading>,
             element: (
                 // <PrivateRoute>
                     <UpdateRoommate></UpdateRoommate>
                 // </PrivateRoute>
-            )
+            ),
         }
     ]
   },

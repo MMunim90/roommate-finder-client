@@ -4,35 +4,35 @@ import { Link } from "react-router";
 import Swal from "sweetalert2";
 
 const AddRoommate = () => {
-  // const handleAddCoffee = (e) => {
-  //   e.preventDefault();
+  const handleAddRoommate = (e) => {
+    e.preventDefault();
 
-  //   const form = e.target;
-  //   const formData = new FormData(form);
-  //   const newCoffee = Object.fromEntries(formData.entries());
-  //   console.log(newCoffee);
+    const form = e.target;
+    const formData = new FormData(form);
+    const newAd = Object.fromEntries(formData.entries());
+    console.log(newAd);
 
-  //   // send coffee data to the database
-  //   fetch("http://localhost:3000/addRoommate", {
-  //     method: "POST",
-  //     headers: {
-  //       "content-type": "application/json",
-  //     },
-  //     body: JSON.stringify(newCoffee),
-  //   })
-  //     .then((res) => res.json())
-  //     .then((data) => {
-  //       if (data.insertedId) {
-  //         console.log('added successfully!');
-  //         Swal.fire({
-  //           title: "Coffee added successfully!!!",
-  //           icon: "success",
-  //           draggable: true,
-  //         });
-  //         form.reset()
-  //       }
-  //     });
-  // };
+    // send coffee data to the database
+    fetch("http://localhost:3000/allAds", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(newAd),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.insertedId) {
+          console.log('added successfully!');
+          Swal.fire({
+            title: "AD added successfully!!!",
+            icon: "success",
+            draggable: true,
+          });
+          form.reset()
+        }
+      });
+  };
   return (
     <div className="p-28 bg-[url(https://i.ibb.co/q3j15yY0/11.png)] bg-cover bg-no-repeat pb-20">
       <h1 className="font-bold text-xl">
@@ -47,7 +47,7 @@ const AddRoommate = () => {
           their ideal living match with ease.
         </p>
       </div>
-      <form className="text-black">
+      <form onSubmit={handleAddRoommate} className="text-black">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <fieldset className="fieldset bg-base-200 border-base-300 rounded-box border p-4">
             <label className="label">Name</label>
@@ -115,26 +115,36 @@ const AddRoommate = () => {
           <fieldset className="fieldset bg-base-200 border-base-300 rounded-box border p-4">
             <label className="label">Room Type</label>
             <select className="input w-full" name="roomType">
-              <option value="single">Single</option>
-              <option value="shared">Shared</option>
-              <option value="other">Other</option>
+              <option value="Single">Single</option>
+              <option value="Shared">Shared</option>
+              <option value="Other">Other</option>
             </select>
           </fieldset>
           <fieldset className="fieldset bg-base-200 border-base-300 rounded-box border p-4">
             <label className="label">Lifestyle Preferences</label>
             <select className="input w-full" name="lifestyle">
-              <option value="pets">Pets</option>
-              <option value="smoking">Smoking</option>
-              <option value="nightOwl">Night Owl</option>
-              <option value="other">Other</option>
+              <option>Select</option>
+              <option value="Pets">Pets</option>
+              <option value="Smoking">Smoking</option>
+              <option value="Night Owl">Night Owl</option>
+              <option value="Other">Other</option>
             </select>
           </fieldset>
           <fieldset className="fieldset bg-base-200 border-base-300 rounded-box border p-4">
+          <label className="label">Photo</label>
+          <input
+            type="text"
+            name="photo"
+            className="input w-full"
+            placeholder="Enter Photo URL"
+          />
+        </fieldset>
+          <fieldset className="fieldset bg-base-200 border-base-300 rounded-box border p-4">
             <label className="label">Availability</label>
             <select className="input w-full" name="availability">
-              <option value="available">Available</option>
-              <option value="availableSoon">Available Soon</option>
-              <option value="notAvailable">Not Available</option>
+              <option value="Available">Available</option>
+              <option value="Available Soon">Available Soon</option>
+              <option value="Not Available">Not Available</option>
             </select>
           </fieldset>
         </div>

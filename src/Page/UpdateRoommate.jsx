@@ -106,6 +106,15 @@ const UpdateRoommate = () => {
             />
           </fieldset>
           <fieldset className="fieldset bg-base-200 border-base-300 rounded-box border p-4">
+          <label className="label">Photo</label>
+          <input
+            type="text"
+            name="photo"
+            className="input w-full"
+            placeholder="Enter Photo URL"
+          />
+        </fieldset>
+          <fieldset className="fieldset bg-base-200 border-base-300 rounded-box border p-4">
             <label className="label">Photo</label>
             <input
               type="text"
