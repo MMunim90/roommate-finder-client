@@ -40,10 +40,13 @@ const Navbar = () => {
               } to="/blog">My Listings</NavLink></li>
       </ul>
     </div>
+    <div className='flex items-center'>
+    <img className='hidden lg:block w-10 rounded-xl' src="https://i.ibb.co/WNpY4jYv/logo.png" alt="" />
     <Link to="/" className="btn btn-ghost font-bold text-2xl text-secondary">Find Mate</Link>
+    </div>
   </div>
   <div className="navbar-center hidden lg:flex">
-    <ul className="menu menu-horizontal px-1">
+    <ul className="menu menu-horizontal px-1 text-xl">
       <li><NavLink className={({ isActive }) =>
                 isActive ? "border-b-2 border-black" : ""
               } to="/">Home</NavLink></li>

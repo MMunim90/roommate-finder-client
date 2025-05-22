@@ -34,21 +34,17 @@ const AddRoommate = () => {
       });
   };
   return (
-    <div className="p-28 bg-[url(https://i.ibb.co/q3j15yY0/11.png)] bg-cover bg-no-repeat pb-20">
-      <h1 className="font-bold text-xl">
-        <FaArrowLeftLong className="inline" /> &nbsp;
-        <Link to="/">Back to home</Link>
-      </h1>
-      <div className="p-20 text-center space-y-4">
-        <h1 className="text-6xl">Add To Find Roommate</h1>
-        <p>
+    <div className="p-4 md:p-28 bg-[url(https://i.ibb.co/q3j15yY0/11.png)] bg-cover bg-no-repeat pb-20">
+      <div className="p-4 space-y-4 flex flex-col mb-6">
+        <h1 className="text-4xl lg:text-6xl text-center">Add To Find Roommate</h1>
+        <p className="text-center text-2xl">
           Fill in the details below to add a new roommate listing. Include the
           name, location, lifestyle preferences, and budget to help users find
           their ideal living match with ease.
         </p>
       </div>
       <form onSubmit={handleAddRoommate} className="text-black">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
           <fieldset className="fieldset bg-base-200 border-base-300 rounded-box border p-4">
             <label className="label">Name</label>
             <input
@@ -149,11 +145,17 @@ const AddRoommate = () => {
           </fieldset>
         </div>
 
-        <input
+        <div className="flex justify-center items-center gap-6 mt-6">
+          <input
           type="submit"
-          className="btn w-full mt-6 bg-[#D2B48C] font-rancho text-lg border-black border-2"
+          className="btn bg-[#D2B48C] text-lg border-black border-2"
           value="Add"
         />
+        <h1 className="btn font-bold text-lg border-black border-2">
+        <FaArrowLeftLong className="inline" /> &nbsp;
+        <Link to="/">Back to home</Link>
+      </h1>
+      </div>
       </form>
     </div>
   );

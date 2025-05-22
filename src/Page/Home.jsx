@@ -13,7 +13,7 @@ const Home = () => {
             </div>
             <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6'>
                 {
-                    allAds.map(ad => <AdCard key={ad._id} ad={ad}></AdCard>)
+                    allAds.filter(ad => ad.availability === "Available").map(ad => <AdCard key={ad._id} ad={ad}></AdCard>)
                 }
             </div>
         </div>
