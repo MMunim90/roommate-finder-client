@@ -87,7 +87,7 @@ const AddRoommate = () => {
               type="number"
               name="amount"
               className="input w-full"
-              placeholder="Enter Rent Amount"
+              placeholder="Enter Rent Amount per Month"
             />
           </fieldset>
           <fieldset className="fieldset bg-base-200 border-base-300 rounded-box border p-4">

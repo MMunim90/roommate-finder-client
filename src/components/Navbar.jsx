@@ -2,6 +2,10 @@ import React, { use } from 'react';
 import { Link, NavLink } from 'react-router';
 import { toast } from 'react-toastify';
 import { AuthContext } from '../Provider/AuthProvider';
+import { SiBookmyshow } from 'react-icons/si';
+import { CgBrowse } from 'react-icons/cg';
+import { MdPlaylistAddCircle } from 'react-icons/md';
+import { FaHome } from 'react-icons/fa';
 
 const Navbar = () => {
   const {user, logOut} = use(AuthContext)
@@ -28,16 +32,16 @@ const Navbar = () => {
         className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
         <li><NavLink className={({ isActive }) =>
                 isActive ? "border-b-2 border-black" : ""
-              } to="/">Home</NavLink></li>
+              } to="/"><FaHome />Home</NavLink></li>
         <li><NavLink className={({ isActive }) =>
                 isActive ? "border-b-2 border-black" : ""
-              } to="/addRoommate">Add Roommate</NavLink></li>
+              } to="/addRoommate"><MdPlaylistAddCircle />Add to Find</NavLink></li>
         <li><NavLink className={({ isActive }) =>
                 isActive ? "border-b-2 border-black" : ""
-              } to="/blog">Browse Listing</NavLink></li>
+              } to="/blog"><CgBrowse />Browse Listing</NavLink></li>
         <li><NavLink className={({ isActive }) =>
                 isActive ? "border-b-2 border-black" : ""
-              } to="/blog">My Listings</NavLink></li>
+              } to="/blog"><SiBookmyshow />My Listings</NavLink></li>
       </ul>
     </div>
     <div className='flex items-center'>
@@ -49,16 +53,16 @@ const Navbar = () => {
     <ul className="menu menu-horizontal px-1 text-xl">
       <li><NavLink className={({ isActive }) =>
                 isActive ? "border-b-2 border-black" : ""
-              } to="/">Home</NavLink></li>
+              } to="/"><FaHome />Home</NavLink></li>
       <li><NavLink className={({ isActive }) =>
                 isActive ? "border-b-2 border-black" : ""
-              } to="/addRoommate">Add Roommate</NavLink></li>
+              } to="/addRoommate"><MdPlaylistAddCircle />Add to Find</NavLink></li>
       <li><NavLink className={({ isActive }) =>
                 isActive ? "border-b-2 border-black" : ""
-              } to="/blog">Browse Listing</NavLink></li>
+              } to="/blog"><CgBrowse />Browse Listing</NavLink></li>
       <li><NavLink className={({ isActive }) =>
                 isActive ? "border-b-2 border-black" : ""
-              } to="/blog">My Listings</NavLink></li>
+              } to="/blog"><SiBookmyshow />My Listings</NavLink></li>
     </ul>
   </div>
   <div className="navbar-end">
@@ -80,6 +84,7 @@ const Navbar = () => {
         tabIndex={0}
         className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
         <li><a className='text-2xl font-bold text-secondary'>User : {user && user.displayName}</a></li>
+        <button className='cursor-pointer'>Dark Mode</button>
         <button className='cursor-pointer'>Log out</button> {/* onClick={handleLogOut}*/}
       </ul>
     </div>
