@@ -22,19 +22,19 @@ const router = createBrowserRouter([
             element: <Home></Home>
         },
         {
-            path: 'addRoommate',
+            path: '/addRoommate',
             element: (
-                <PrivateRoute>
+                // <PrivateRoute>
                     <AddRoommate></AddRoommate>
-                </PrivateRoute>
+                // </PrivateRoute>
             )
         },
         {
-            path: 'updateRoommate',
+            path: '/updateRoommate',
             element: (
-                <PrivateRoute>
+                // <PrivateRoute>
                     <UpdateRoommate></UpdateRoommate>
-                </PrivateRoute>
+                // </PrivateRoute>
             )
         }
     ]

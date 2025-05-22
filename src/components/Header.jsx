@@ -1,6 +1,5 @@
 import React from 'react';
 import Navbar from './Navbar';
-import Slider from './Slider';
 
 const Header = () => {
     return (
@@ -8,9 +7,6 @@ const Header = () => {
             <nav>
                 <Navbar></Navbar>
             </nav>
-            <main className='my-4'>
-                <Slider></Slider>
-            </main>
         </div>
     );
 };

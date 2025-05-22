@@ -31,7 +31,7 @@ const Navbar = () => {
               } to="/">Home</NavLink></li>
         <li><NavLink className={({ isActive }) =>
                 isActive ? "border-b-2 border-black" : ""
-              } to="/profile">Add Roommate</NavLink></li>
+              } to="/addRoommate">Add Roommate</NavLink></li>
         <li><NavLink className={({ isActive }) =>
                 isActive ? "border-b-2 border-black" : ""
               } to="/blog">Browse Listing</NavLink></li>
@@ -49,7 +49,7 @@ const Navbar = () => {
               } to="/">Home</NavLink></li>
       <li><NavLink className={({ isActive }) =>
                 isActive ? "border-b-2 border-black" : ""
-              } to="/profile">Add Roommate</NavLink></li>
+              } to="/addRoommate">Add Roommate</NavLink></li>
       <li><NavLink className={({ isActive }) =>
                 isActive ? "border-b-2 border-black" : ""
               } to="/blog">Browse Listing</NavLink></li>
@@ -60,11 +60,11 @@ const Navbar = () => {
   </div>
   <div className="navbar-end">
   <div className="flex gap-4 items-center">
-    <div className='text-white font-bold btn btn-info rounded-lg cursor-pointer'>
-    {user ? "" : <Link className='cursor-pointer' to="/auth/login">Login</Link>}
+    <div className='text-white font-bold btn border-none bg-secondary rounded-lg cursor-pointer'>
+  {user ? "" : <Link className='cursor-pointer'>Login</Link>} {/* to="/auth/login"*/}
     </div>
-    <div className='text-white font-bold btn btn-outline btn-info rounded-xl cursor-pointer'>
-    {user ? "" : <Link className='cursor-pointer' to="/auth/login">Signup</Link>}
+    <div className='text-white font-bold btn btn-outline border-secondary btn-info rounded-xl cursor-pointer'>
+    {user ? "" : <Link className='cursor-pointer'>Signup</Link>} {/* to="/auth/login"*/}
     </div>
     <div className="dropdown dropdown-hover dropdown-end">
       <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
@@ -77,7 +77,7 @@ const Navbar = () => {
         tabIndex={0}
         className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
         <li><a className='text-2xl font-bold text-secondary'>User : {user && user.displayName}</a></li>
-        <button className='cursor-pointer' onClick={handleLogOut}>Log out</button>
+        <button className='cursor-pointer'>Log out</button> {/* onClick={handleLogOut}*/}
       </ul>
     </div>
   </div>
