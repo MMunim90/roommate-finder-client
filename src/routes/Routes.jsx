@@ -1,8 +1,4 @@
 import { createBrowserRouter } from "react-router";
-// import ErrorPage from "../Pages/ErrorPage";
-// import Login from "../Pages/Login";
-// import Register from "../Pages/Register";
-// import AuthLayout from "../Layouts/AuthLayout";
 import MainLayouts from "../layouts/MainLayouts";
 import Loading from "../components/Loading";
 import Home from "../Page/Home";
@@ -18,106 +14,55 @@ const router = createBrowserRouter([
   {
     path: "/",
     element: <MainLayouts></MainLayouts>,
-    // loader: () => fetch("/subscription.json"),
     hydrateFallbackElement: <Loading></Loading>,
-    children:[
-        {
-            index: true,
-            element: <Home></Home>,
-            loader: () => fetch('http://localhost:3000/allAds'),
-            hydrateFallbackElement: <Loading></Loading>
-        },
-        {
-            path: '/addRoommate',
-            element: (
-                // <PrivateRoute>
-                    <AddRoommate></AddRoommate>
-                // </PrivateRoute>
-            ),
-        },
-        {
-            path: '/updateRoommate',
-            element: (
-                // <PrivateRoute>
-                    <UpdateRoommate></UpdateRoommate>
-                // </PrivateRoute>
-            ),
-        },
-        {
+    children: [
+      {
+        index: true,
+        element: <Home></Home>,
+        loader: () => fetch("http://localhost:3000/allAds"),
+        hydrateFallbackElement: <Loading></Loading>,
+      },
+      {
+        path: "/addRoommate",
+        element: (
+          <PrivateRoute>
+            <AddRoommate></AddRoommate>
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "/updateRoommate",
+        element: (
+          <PrivateRoute>
+            <UpdateRoommate></UpdateRoommate>
+          </PrivateRoute>
+        ),
+      },
+      {
         path: "ad/:id",
         loader: ({ params }) =>
           fetch(`http://localhost:3000/allAds/${params.id}`),
         element: (
-            // <PrivateRoute>
-                <AdDetails></AdDetails>
-            // </PrivateRoute>
+          <PrivateRoute>
+            <AdDetails></AdDetails>
+          </PrivateRoute>
         ),
-        hydrateFallbackElement: <Loading></Loading>
+        hydrateFallbackElement: <Loading></Loading>,
       },
       {
-        path: 'login',
-        element: <Login></Login>
+        path: "login",
+        element: <Login></Login>,
       },
       {
-        path: 'register',
-        element: <Register></Register>
+        path: "register",
+        element: <Register></Register>,
       },
-      {
-        path: "/*",
-        element: <ErrorPage></ErrorPage>
-      },
-    ]
+    ],
   },
-//   {
-//     path: "/profile",
-//     element: (
-//       <PrivateRoute>
-//         <Profile></Profile>
-//       </PrivateRoute>
-//     ),
-//     hydrateFallbackElement: <Loading></Loading>,
-//   },
-//   {
-//     path: "/auth",
-//     element: <AuthLayout></AuthLayout>,
-//     children: [
-//       {
-//         path: "/auth/login",
-//         element: <Login></Login>,
-//       },
-//       {
-//         path: "/auth/register",
-//         element: <Register></Register>,
-//       },
-//       {
-//         path: "/auth/forgetPass",
-//         element: <ForgetPassPage></ForgetPassPage>,
-//       },
-//     ],
-//   },
-//   {
-//     path: "/blog",
-//     element: (
-//       <PrivateRoute>
-//         <Blog></Blog>
-//       </PrivateRoute>
-//     ),
-//     hydrateFallbackElement: <Loading></Loading>,
-//   },
-//   {
-//     path: "/news-details/:id",
-//     element: (
-//       <PrivateRoute>
-//         <SubscriptionDetails></SubscriptionDetails>
-//       </PrivateRoute>
-//     ),
-//     loader: () => fetch("/subscription.json"),
-//     hydrateFallbackElement: <Loading></Loading>,
-//   },
-//   {
-//     path: "/*",
-//     element: <ErrorPage></ErrorPage>,
-//   },
+  {
+    path: "/*",
+    element: <ErrorPage></ErrorPage>,
+  },
 ]);
 
 export default router;

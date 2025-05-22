@@ -58,8 +58,8 @@ const AdDetails = () => {
           </p>
         </div>
       </div>
-      <div className="font-bold text-xl text-black py-6 text-center">
-        <div className="btn">
+      <div className="font-bold text-xl py-6 text-center">
+        <div className="btn border-2 border-black text-white bg-secondary">
           <FaArrowLeftLong className="inline" /> &nbsp;
           <Link to="/">Back to home</Link>
         </div>
