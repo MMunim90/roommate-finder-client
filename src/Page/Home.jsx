@@ -35,7 +35,7 @@ const Home = () => {
         <Fade direction="down" keyframes={slightFadeDown}>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-10">
           {allAds
-            .filter((ad) => ad.availability === "Available")
+            .filter((ad) => ad.availability === "Available").slice(0, 6)
             .map((ad) => (
               <AdCard key={ad._id} ad={ad}></AdCard>
             ))}

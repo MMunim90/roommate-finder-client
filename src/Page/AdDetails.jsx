@@ -6,9 +6,9 @@ import { Link, useLoaderData } from "react-router";
 
 const AdDetails = () => {
   const [liked, setLiked] = useState(false);
-  const [count, setCount] = useState(0);
   const Details = useLoaderData();
   const {
+    _id,
     name,
     title,
     location,
@@ -21,20 +21,31 @@ const AdDetails = () => {
     availability,
   } = Details;
 
+  const [count, setCount] = useState(() => {
+    const storedCounts = JSON.parse(localStorage.getItem("counts") || "{}");
+    return storedCounts[_id] || 0;
+  });
+
   const handleLike = () => {
+    const storedCounts = JSON.parse(localStorage.getItem("counts") || "{}");
+    const newCount = (storedCounts[_id] || 0) + 1;
+
+    storedCounts[_id] = newCount;
+    localStorage.setItem("counts", JSON.stringify(storedCounts));
+    setCount(newCount);
     setLiked(true);
-    setCount((prev) => prev + 1);
-    toast.success("Liked!");
+    toast.success(`Liked!`);
   };
 
   const handleUnlike = () => {
     setLiked(false);
-    setCount((prev) => (prev > 0 ? prev - 1 : 0));
     toast.success("Unliked!");
   };
   return (
     <div className="pb-20 my-10">
-    <div className="font-extrabold text-2xl text-secondary mb-10 text-center">{liked ? `${count} people interested in` : ""}</div>
+      <div className="font-extrabold text-2xl mb-10 text-center">
+        {liked ? `${count} people interested in` : ""}
+      </div>
       <div className="grid grid-cols-1 items-center justify-center p-4 md:p-10 text-black bg-[#F4F3F0] rounded-lg">
         <figure>
           <img
@@ -73,12 +84,14 @@ const AdDetails = () => {
               <b> Name : </b>
               {name}
             </p>
-            {
-                liked  ? <p>
-              <b> Contact : </b>
-              {contact}
-            </p> : ''
-            }
+            {liked ? (
+              <p>
+                <b> Contact : </b>
+                {contact}
+              </p>
+            ) : (
+              ""
+            )}
           </div>
 
           <div className="px-6 lg:mt-10">
@@ -102,7 +115,7 @@ const AdDetails = () => {
         </div>
       </div>
       <div className="font-bold text-xl py-6 text-center">
-        <div className="btn border-2 border-black text-white bg-secondary text-xl">
+        <div className="btn border-2 border-black text-xl">
           <FaArrowLeftLong className="inline" /> &nbsp;
           <Link to="/">Back to home</Link>
         </div>

@@ -58,6 +58,8 @@ const router = createBrowserRouter([
                 <MyListing></MyListing>
             </PrivateRoute>
         ),
+        loader: () => fetch("http://localhost:3000/allAds"),
+        hydrateFallbackElement: <Loading></Loading>,
       },
       {
         path: "browseListing",

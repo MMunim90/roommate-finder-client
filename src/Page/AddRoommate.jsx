@@ -117,6 +117,7 @@ const AddRoommate = () => {
           <fieldset className="fieldset rounded-box border p-4">
             <label className="label">Room Type</label>
             <select className="input w-full" name="roomType" required>
+              <option>Select</option>
               <option value="Single">Single</option>
               <option value="Shared">Shared</option>
               <option value="Other">Other</option>
