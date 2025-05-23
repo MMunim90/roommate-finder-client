@@ -1,9 +1,11 @@
-import React from "react";
+import React, { use } from "react";
 import { FaArrowLeftLong } from "react-icons/fa6";
 import { Link } from "react-router";
 import Swal from "sweetalert2";
+import { AuthContext } from "../Provider/AuthProvider";
 
 const AddRoommate = () => {
+  const { user } = use(AuthContext);
   const handleAddRoommate = (e) => {
     e.preventDefault();
 
@@ -43,63 +45,67 @@ const AddRoommate = () => {
           their ideal living match with ease.
         </p>
       </div>
-      <form onSubmit={handleAddRoommate} className="text-black">
+      <form onSubmit={handleAddRoommate} className="bg-gray-400 p-6 rounded-2xl">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-          <fieldset className="fieldset bg-base-200 border-base-300 rounded-box border p-4">
+          <fieldset className="fieldset rounded-box border p-4">
             <label className="label">Name</label>
             <input
               type="text"
               name="name"
-              readOnly={name}
+              value={user.displayName}
               className="input w-full"
             />
           </fieldset>
-          <fieldset className="fieldset bg-base-200 border-base-300 rounded-box border p-4">
+          <fieldset className="fieldset rounded-box border p-4">
             <label className="label">Email</label>
             <input
               type="email"
               name="email"
-              // readOnly={email}
+              value={user.email}
               className="input w-full"
             />
           </fieldset>
-          <fieldset className="fieldset bg-base-200 border-base-300 rounded-box border p-4">
+          <fieldset className="fieldset rounded-box border p-4">
             <label className="label">Title</label>
             <input
               type="text"
               name="title"
               className="input w-full"
               placeholder="Enter Title"
+              required
             />
           </fieldset>
-          <fieldset className="fieldset bg-base-200 border-base-300 rounded-box border p-4">
+          <fieldset className="fieldset rounded-box border p-4">
             <label className="label">Location</label>
             <input
               type="text"
               name="location"
               className="input w-full"
               placeholder="Enter Location"
+              required
             />
           </fieldset>
-          <fieldset className="fieldset bg-base-200 border-base-300 rounded-box border p-4">
+          <fieldset className="fieldset rounded-box border p-4">
             <label className="label">Rent Amount</label>
             <input
               type="number"
               name="amount"
               className="input w-full"
               placeholder="Enter Rent Amount per Month"
+              required
             />
           </fieldset>
-          <fieldset className="fieldset bg-base-200 border-base-300 rounded-box border p-4">
+          <fieldset className="fieldset rounded-box border p-4">
             <label className="label">Contact Info</label>
             <input
               type="number"
               name="contact"
               className="input w-full"
               placeholder="Enter Contact Info"
+              required
             />
           </fieldset>
-          <fieldset className="fieldset bg-base-200 border-base-300 rounded-box border p-4">
+          <fieldset className="fieldset rounded-box border p-4">
             <label className="label">Description</label>
             <input
               type="text"
@@ -108,15 +114,15 @@ const AddRoommate = () => {
               placeholder="Enter Room Description"
             />
           </fieldset>
-          <fieldset className="fieldset bg-base-200 border-base-300 rounded-box border p-4">
+          <fieldset className="fieldset rounded-box border p-4">
             <label className="label">Room Type</label>
-            <select className="input w-full" name="roomType">
+            <select className="input w-full" name="roomType" required>
               <option value="Single">Single</option>
               <option value="Shared">Shared</option>
               <option value="Other">Other</option>
             </select>
           </fieldset>
-          <fieldset className="fieldset bg-base-200 border-base-300 rounded-box border p-4">
+          <fieldset className="fieldset rounded-box border p-4">
             <label className="label">Lifestyle Preferences</label>
             <select className="input w-full" name="lifestyle">
               <option>Select</option>
@@ -126,7 +132,7 @@ const AddRoommate = () => {
               <option value="Other">Other</option>
             </select>
           </fieldset>
-          <fieldset className="fieldset bg-base-200 border-base-300 rounded-box border p-4">
+          <fieldset className="fieldset rounded-box border p-4">
           <label className="label">Photo</label>
           <input
             type="text"
@@ -135,7 +141,7 @@ const AddRoommate = () => {
             placeholder="Enter Photo URL"
           />
         </fieldset>
-          <fieldset className="fieldset bg-base-200 border-base-300 rounded-box border p-4">
+          <fieldset className="fieldset rounded-box border p-4">
             <label className="label">Availability</label>
             <select className="input w-full" name="availability">
               <option value="Available">Available</option>
@@ -148,7 +154,7 @@ const AddRoommate = () => {
         <div className="flex justify-center items-center gap-6 mt-10">
           <input
           type="submit"
-          className="btn bg-secondary text-white text-lg border-black border-2"
+          className="btn bg-black text-white text-lg border-black border-2"
           value="Add"
         />
         <h1 className="btn font-bold text-lg border-black border-2">

@@ -1,9 +1,12 @@
+@tailwind/preflight;
+@tailwind utilities;
+
 @import url('https://fonts.googleapis.com/css2?family=Ancizar+Sans:ital,wght@0,100..1000;1,100..1000&display=swap');
 
 @import "tailwindcss";
-@plugin "daisyui"{
-    themes: light --default;
-}
+ @plugin "daisyui" {
+   themes: light --default, dark --prefersdark;
+ }
 
 @plugin "daisyui/theme" {
     name: "light";

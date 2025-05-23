@@ -30,7 +30,7 @@ const Footer = () => {
               alt=""
             />
             <p>
-              <span className="font-bold text-2xl text-secondary">
+              <span className="font-bold text-2xl">
                 Find Mate!
               </span>
               <br />

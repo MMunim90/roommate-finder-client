@@ -9,6 +9,8 @@ import AdDetails from "../Page/AdDetails";
 import ErrorPage from "../Page/ErrorPage";
 import Register from "../Page/Register";
 import Login from "../Page/Login";
+import MyListing from "../Page/MyListing";
+import BrowseListing from "../Page/BrowseListing";
 
 const router = createBrowserRouter([
   {
@@ -47,6 +49,20 @@ const router = createBrowserRouter([
             <AdDetails></AdDetails>
           </PrivateRoute>
         ),
+        hydrateFallbackElement: <Loading></Loading>,
+      },
+      {
+        path: "myListing",
+        element: (
+            <PrivateRoute>
+                <MyListing></MyListing>
+            </PrivateRoute>
+        ),
+      },
+      {
+        path: "browseListing",
+        element: <BrowseListing></BrowseListing>,
+        loader: () => fetch("http://localhost:3000/allAds"),
         hydrateFallbackElement: <Loading></Loading>,
       },
       {

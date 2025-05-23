@@ -97,27 +97,27 @@ const Login = () => {
         </div>
         <button
           type="submit"
-          className="block w-full p-3 text-center text-white text-2xl font-bold rounded-sm bg-secondary cursor-pointer"
+          className="block w-full p-3 text-center text-white text-2xl font-bold rounded-sm bg-black cursor-pointer"
         >
           Log in
         </button>
       </form>
       <div className="flex items-center pt-4 space-x-1">
         <div className="flex-1 h-px sm:w-16 dark:bg-gray-300"></div>
-        <p className="px-3 text-gray-700 text-2xl font-bold">OR</p>
+        <p className="px-3 text-2xl font-bold">OR</p>
         <div className="flex-1 h-px sm:w-16 dark:bg-gray-300"></div>
       </div>
       <div className="flex justify-center space-x-4 my-6">
         <button
           onClick={handleGoogleSignIn}
-          className="btn btn-outline text-xl btn-secondary w-full"
+          className="btn btn-outline text-xl  w-full"
         >
           <FcGoogle size={24} /> Login With Google
         </button>
       </div>
-      <p className="text-md text-center sm:px-6 dark:text-gray-600">
+      <p className="text-md text-center sm:px-6">
         Don't have an account?
-        <Link to="/register" className="underline text-gray-800">
+        <Link to="/register" className="ml-2 underline text-black">
           Register
         </Link>
       </p>

@@ -13,7 +13,7 @@ const AdCard = ({ ad }) => {
         </div></Tooltip>
       <div className="p-4 rounded-b-2xl bg-gray-400">
         <h2 className="text-xl font-semibold mb-1">{title}</h2>
-        <p className="text-sm text-gray-600 mb-2">Location: {location}</p>
+        <p className="text-sm mb-2">Location: {location}</p>
         <div className="flex items-center mb-2">
           <span className="text-sm font-medium">{availability}</span>
         </div>
@@ -22,7 +22,7 @@ const AdCard = ({ ad }) => {
             <span className="text-lg font-bold">Rent Amount: ${amount} / mo</span>
           </div>
         </div>
-        <div className="w-full text-white cursor-pointer py-2 rounded-xl bg-secondary text-center">
+        <div className="w-full text-white cursor-pointer py-2 rounded-xl bg-black text-center text-2xl">
           <Link to={`/ad/${_id}`}>See more</Link> {/*to={`/news-details/${id}`}*/}
         </div>
       </div>

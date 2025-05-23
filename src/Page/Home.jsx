@@ -19,7 +19,7 @@ const Home = () => {
   }
 `;
   const allAds = useLoaderData();
-  console.log(allAds);
+//   console.log(allAds);
   return (
     <div className="space-y-6 my-6">
       <Fade direction="down" keyframes={slightFadeDown}>
@@ -28,7 +28,7 @@ const Home = () => {
         </div>
       </Fade>
       <Fade direction="down" keyframes={slightFadeDown}>
-        <h1 className="font-bold text-3xl lg:text-5xl text-center my-10 text-secondary">
+        <h1 className="font-bold text-3xl lg:text-5xl text-center my-10">
           Featured Roommates Post
         </h1>
         </Fade>
