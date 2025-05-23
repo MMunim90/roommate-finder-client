@@ -6,9 +6,9 @@ const Footer = () => {
     <div className="rounded">
       <footer className="footer sm:footer-horizontal bg-gray-400 text-base-content py-6 px-10 rounded-t-2xl">
         <nav>
-          <h6 className="footer-title">Services</h6>
-          <a className="link link-hover">Marketing</a>
-          <a className="link link-hover">Advertisement</a>
+          <h6 className="footer-title">Contact</h6>
+          <a className="link link-hover">+880 454478824</a>
+          <a className="link link-hover">6th Floor, Nizam Tower, Motijheel, Dhaka</a>
         </nav>
         <nav>
           <h6 className="footer-title">Company</h6>

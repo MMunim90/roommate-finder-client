@@ -5,6 +5,8 @@ import { AuthContext } from "../Provider/AuthProvider";
 import { MdOutlineDeleteOutline } from "react-icons/md";
 import { GrUpdate } from "react-icons/gr";
 import Swal from "sweetalert2";
+import { Fade } from "react-awesome-reveal";
+import { keyframes } from "@emotion/react";
 
 const MyListing = () => {
   const { user } = use(AuthContext);
@@ -44,11 +46,24 @@ const MyListing = () => {
       }
     });
   };
+
+  const slightFadeDown = keyframes`
+  from {
+    opacity: 0;
+    transform: translateY(-30px); 
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+`;
   return (
     <div>
-      <div className="my-10 text-center text-2xl font-bold">
-        My Total Ad : {myAds.length}
-      </div>
+      <Fade direction="down" keyframes={slightFadeDown}>
+        <div className="my-10 text-center text-2xl font-bold">
+          My Total Ad : {myAds.length}
+        </div>
+      </Fade>
 
       <div>
         <div className="overflow-x-auto">

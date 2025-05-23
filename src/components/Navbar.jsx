@@ -3,7 +3,7 @@ import { Link, NavLink } from "react-router";
 import { toast } from "react-toastify";
 import { AuthContext } from "../Provider/AuthProvider";
 import { SiBookmyshow } from "react-icons/si";
-import { CgBrowse } from "react-icons/cg";
+import { CgBrowse, CgProfile } from "react-icons/cg";
 import { MdDarkMode, MdPlaylistAddCircle } from "react-icons/md";
 import { FaHome } from "react-icons/fa";
 import { BiLogOut } from "react-icons/bi";
@@ -222,6 +222,16 @@ const Navbar = () => {
                   User : {user && user.displayName}
                 </a>
               </li>
+              {user ? (
+                <NavLink to='/profile'
+                  className="btn bg-black text-white cursor-pointer text-xl"
+                >
+                  <CgProfile />
+                  Profile
+                </NavLink>
+              ) : (
+                ""
+              )}
               <button className="btn bg-black text-white cursor-pointer">
                 <label className="swap swap-rotate">
                   <input type="checkbox" onClick={handleToggle}/>

@@ -1,15 +1,18 @@
-import React, { useState } from "react";
+import React, { use, useState } from "react";
 import toast from "react-hot-toast";
 import { AiFillLike, AiOutlineLike } from "react-icons/ai";
 import { FaArrowLeftLong } from "react-icons/fa6";
 import { Link, useLoaderData } from "react-router";
+import { AuthContext } from "../Provider/AuthProvider";
 
 const AdDetails = () => {
   const [liked, setLiked] = useState(false);
-  const Details = useLoaderData();
+  const { user } = use(AuthContext);
+  const allAds = useLoaderData();
   const {
     _id,
     name,
+    email,
     title,
     location,
     amount,
@@ -19,7 +22,7 @@ const AdDetails = () => {
     lifestyle,
     photo,
     availability,
-  } = Details;
+  } = allAds;
 
   const [count, setCount] = useState(() => {
     const storedCounts = JSON.parse(localStorage.getItem("counts") || "{}");
@@ -84,18 +87,11 @@ const AdDetails = () => {
               <b> Name : </b>
               {name}
             </p>
-            {liked ? (
-              <p>
-                <b> Contact : </b>
-                {contact}
-              </p>
-            ) : (
-              ""
-            )}
           </div>
 
           <div className="px-6 lg:mt-10">
-            <button className="flex items-center gap-4">
+            {
+            email !== user.email && <button className="flex items-center gap-4">
               <span className="text-2xl">Like This ?</span>{" "}
               {liked ? (
                 <AiFillLike
@@ -111,6 +107,16 @@ const AdDetails = () => {
                 />
               )}
             </button>
+            }
+            <br />
+            {liked ? (
+              <p className="text-2xl">
+                <b> Contact : </b>
+                {contact}
+              </p>
+            ) : (
+              ""
+            )}
           </div>
         </div>
       </div>

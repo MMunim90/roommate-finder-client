@@ -2,9 +2,11 @@ import React from "react";
 import { FaArrowLeftLong } from "react-icons/fa6";
 import { Link, useLoaderData, useNavigate } from "react-router";
 import Swal from "sweetalert2";
+import { keyframes } from "@emotion/react";
+import { Fade } from "react-awesome-reveal";
 
 const UpdateRoommate = () => {
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   const {
     _id,
     name,
@@ -44,19 +46,32 @@ const UpdateRoommate = () => {
             text: `Update ${name} Details Successfully`,
             draggable: true,
           });
-          navigate('/myListing')
+          navigate("/myListing");
         }
       });
   };
+
+  const slightFadeDown = keyframes`
+  from {
+    opacity: 0;
+    transform: translateY(-30px); 
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+`;
   return (
     <div className="p-4 md:px-28 md:py-15 pb-20">
-      <div className="p-4 space-y-6 mb-6 text-center">
-        <h1 className="text-6xl">Update Find Post</h1>
-        <p>
-          Easily Update Your Find Post to Reach More Roommates with Accurate
-          Details, Photos, and Location Across Bangladesh
-        </p>
-      </div>
+      <Fade direction="down" keyframes={slightFadeDown}>
+        <div className="p-4 space-y-6 mb-6 text-center">
+          <h1 className="text-6xl">Update Find Post</h1>
+          <p>
+            Easily Update Your Find Post to Reach More Roommates with Accurate
+            Details, Photos, and Location Across Bangladesh
+          </p>
+        </div>
+      </Fade>
       <form onSubmit={handleUpdateAd} className="bg-gray-400 p-6 rounded-2xl">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
           <fieldset className="fieldset rounded-box border p-4">
@@ -154,15 +169,15 @@ const UpdateRoommate = () => {
               defaultValue={photo}
             />
           </fieldset>
-          <fieldset className="fieldset rounded-box border p-4">
-            <label className="label">Availability</label>
-            <select className="input w-full" name="availability">
-              <option value="Available">Available</option>
-              <option value="Available Soon">Available Soon</option>
-              <option value="Not Available">Not Available</option>
-            </select>
-          </fieldset>
         </div>
+        <fieldset className="fieldset rounded-box border p-4 mt-6">
+          <label className="label">Availability</label>
+          <select className="input w-full" name="availability">
+            <option value="Available">Available</option>
+            <option value="Available Soon">Available Soon</option>
+            <option value="Not Available">Not Available</option>
+          </select>
+        </fieldset>
 
         <div className="flex justify-center items-center gap-6 mt-10">
           <input
@@ -171,8 +186,7 @@ const UpdateRoommate = () => {
             value=" Update"
           />
           <h1 className="btn font-bold text-lg border-black border-2">
-            <FaArrowLeftLong className="inline" /> &nbsp;
-            <Link to="/myListing">My Listing</Link>
+            <Link to="/myListing">Cancel</Link>
           </h1>
         </div>
       </form>

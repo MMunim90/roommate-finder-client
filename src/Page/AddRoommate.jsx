@@ -3,6 +3,8 @@ import { FaArrowLeftLong } from "react-icons/fa6";
 import { Link } from "react-router";
 import Swal from "sweetalert2";
 import { AuthContext } from "../Provider/AuthProvider";
+import { Fade } from "react-awesome-reveal";
+import { keyframes } from "@emotion/react";
 
 const AddRoommate = () => {
   const { user } = use(AuthContext);
@@ -31,21 +33,39 @@ const AddRoommate = () => {
             icon: "success",
             draggable: true,
           });
-          form.reset()
+          form.reset();
         }
       });
   };
+
+  const slightFadeDown = keyframes`
+  from {
+    opacity: 0;
+    transform: translateY(-30px); 
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+`;
   return (
     <div className="p-4 md:p-28 pb-20">
-      <div className="p-4 space-y-4 flex flex-col mb-6">
-        <h1 className="text-4xl lg:text-6xl text-center">Add To Find Roommate</h1>
-        <p className="text-center text-2xl">
-          Fill in the details below to add a new roommate listing. Include the
-          name, location, lifestyle preferences, and budget to help users find
-          their ideal living match with ease.
-        </p>
-      </div>
-      <form onSubmit={handleAddRoommate} className="bg-gray-400 p-6 rounded-2xl">
+      <Fade direction="down" keyframes={slightFadeDown}>
+        <div className="p-4 space-y-4 flex flex-col mb-6">
+          <h1 className="text-4xl lg:text-6xl text-center">
+            Add To Find Roommate
+          </h1>
+          <p className="text-center text-2xl">
+            Fill in the details below to add a new roommate listing. Include the
+            name, location, lifestyle preferences, and budget to help users find
+            their ideal living match with ease.
+          </p>
+        </div>
+      </Fade>
+      <form
+        onSubmit={handleAddRoommate}
+        className="bg-gray-400 p-6 rounded-2xl"
+      >
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
           <fieldset className="fieldset rounded-box border p-4">
             <label className="label">Name</label>
@@ -134,15 +154,16 @@ const AddRoommate = () => {
             </select>
           </fieldset>
           <fieldset className="fieldset rounded-box border p-4">
-          <label className="label">Photo</label>
-          <input
-            type="text"
-            name="photo"
-            className="input w-full"
-            placeholder="Enter Photo URL"
-          />
-        </fieldset>
-          <fieldset className="fieldset rounded-box border p-4">
+            <label className="label">Photo</label>
+            <input
+              type="text"
+              name="photo"
+              className="input w-full"
+              placeholder="Enter Photo URL"
+            />
+          </fieldset>
+        </div>
+        <fieldset className="fieldset rounded-box border p-4 mt-6">
             <label className="label">Availability</label>
             <select className="input w-full" name="availability">
               <option value="Available">Available</option>
@@ -150,19 +171,17 @@ const AddRoommate = () => {
               <option value="Not Available">Not Available</option>
             </select>
           </fieldset>
-        </div>
 
         <div className="flex justify-center items-center gap-6 mt-10">
           <input
-          type="submit"
-          className="btn bg-black text-white text-lg border-black border-2"
-          value="Add"
-        />
-        <h1 className="btn font-bold text-lg border-black border-2">
-        <FaArrowLeftLong className="inline" /> &nbsp;
-        <Link to="/">Back to home</Link>
-      </h1>
-      </div>
+            type="submit"
+            className="btn bg-black text-white text-lg border-black border-2"
+            value="Add"
+          />
+          <h1 className="btn font-bold text-lg border-black border-2">
+            <Link to="/">Cancel</Link>
+          </h1>
+        </div>
       </form>
     </div>
   );
