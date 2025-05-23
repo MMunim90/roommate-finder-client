@@ -22,7 +22,7 @@ const router = createBrowserRouter([
       {
         index: true,
         element: <Home></Home>,
-        loader: () => fetch("http://localhost:3000/allAds"),
+        loader: () => fetch("https://roommate-finder-server-eight.vercel.app/allAds"),
         hydrateFallbackElement: <Loading></Loading>,
       },
       {
@@ -41,13 +41,13 @@ const router = createBrowserRouter([
           </PrivateRoute>
         ),
         loader: ({ params }) =>
-          fetch(`http://localhost:3000/allAds/${params.id}`),
+          fetch(`https://roommate-finder-server-eight.vercel.app/allAds/${params.id}`),
         hydrateFallbackElement: <Loading></Loading>,
       },
       {
         path: "ad/:id",
         loader: ({ params }) =>
-          fetch(`http://localhost:3000/allAds/${params.id}`),
+          fetch(`https://roommate-finder-server-eight.vercel.app/allAds/${params.id}`),
         element: (
           <PrivateRoute>
             <AdDetails></AdDetails>
@@ -62,13 +62,13 @@ const router = createBrowserRouter([
             <MyListing></MyListing>
           </PrivateRoute>
         ),
-        loader: () => fetch("http://localhost:3000/allAds"),
+        loader: () => fetch("https://roommate-finder-server-eight.vercel.app/allAds"),
         hydrateFallbackElement: <Loading></Loading>,
       },
       {
         path: "browseListing",
         element: <BrowseListing></BrowseListing>,
-        loader: () => fetch("http://localhost:3000/allAds"),
+        loader: () => fetch("https://roommate-finder-server-eight.vercel.app/allAds"),
         hydrateFallbackElement: <Loading></Loading>,
       },
       {

@@ -26,7 +26,7 @@ const UpdateRoommate = () => {
     // console.log(updatedAd);
 
     // send updated coffee to the db
-    fetch(`http://localhost:3000/allAds/${_id}`, {
+    fetch(`https://roommate-finder-server-eight.vercel.app/allAds/${_id}`, {
       method: "PUT",
       headers: {
         "content-type": "application/json",

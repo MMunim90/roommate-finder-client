@@ -17,7 +17,7 @@ const AddRoommate = () => {
     // console.log(newAd);
 
     // send coffee data to the database
-    fetch("http://localhost:3000/allAds", {
+    fetch("https://roommate-finder-server-eight.vercel.app/allAds", {
       method: "POST",
       headers: {
         "content-type": "application/json",

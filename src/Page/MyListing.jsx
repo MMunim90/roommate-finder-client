@@ -28,7 +28,7 @@ const MyListing = () => {
       //   console.log(result.isConfirmed);
       if (result.isConfirmed) {
         // start deleting the ad
-        fetch(`http://localhost:3000/allAds/${_id}`, {
+        fetch(`https://roommate-finder-server-eight.vercel.app/allAds/${_id}`, {
           method: "DELETE",
         })
           .then((res) => res.json())
