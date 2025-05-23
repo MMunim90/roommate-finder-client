@@ -1,9 +1,10 @@
 import React from "react";
 import { FaArrowLeftLong } from "react-icons/fa6";
-import { Link, useLoaderData } from "react-router";
+import { Link, useLoaderData, useNavigate } from "react-router";
 import Swal from "sweetalert2";
 
 const UpdateRoommate = () => {
+  const navigate = useNavigate()
   const {
     _id,
     name,
@@ -13,14 +14,14 @@ const UpdateRoommate = () => {
     amount,
     contact,
     description,
-    photo
+    photo,
   } = useLoaderData();
   const handleUpdateAd = (e) => {
     e.preventDefault();
     const form = e.target;
     const formData = new FormData(form);
     const updatedAd = Object.fromEntries(formData.entries());
-    console.log(updatedAd);
+    // console.log(updatedAd);
 
     // send updated coffee to the db
     fetch(`http://localhost:3000/allAds/${_id}`, {
@@ -43,6 +44,7 @@ const UpdateRoommate = () => {
             text: `Update ${name} Details Successfully`,
             draggable: true,
           });
+          navigate('/myListing')
         }
       });
   };

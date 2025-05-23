@@ -12,7 +12,7 @@ const AddRoommate = () => {
     const form = e.target;
     const formData = new FormData(form);
     const newAd = Object.fromEntries(formData.entries());
-    console.log(newAd);
+    // console.log(newAd);
 
     // send coffee data to the database
     fetch("http://localhost:3000/allAds", {
@@ -25,7 +25,7 @@ const AddRoommate = () => {
       .then((res) => res.json())
       .then((data) => {
         if (data.insertedId) {
-          console.log('added successfully!');
+          // console.log('added successfully!');
           Swal.fire({
             title: "AD added successfully!!!",
             icon: "success",
