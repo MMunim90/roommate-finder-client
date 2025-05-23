@@ -18,7 +18,7 @@ const Slider = () => {
     >
       <SwiperSlide>
         <div
-          className="relative w-full h-[220px] md:h-[350px] lg:h-[500px] bg-cover bg-center rounded-2xl"
+          className="relative w-full h-[220px] md:h-[400px] lg:h-[700px] bg-cover bg-center rounded-2xl"
           style={{
             backgroundImage:
               "url('https://i.ibb.co/RGc0t6JP/slide1.jpg')",
@@ -38,7 +38,7 @@ const Slider = () => {
 
       <SwiperSlide>
         <div
-          className="relative w-full h-[220px] md:h-[350px] lg:h-[500px] bg-cover bg-center rounded-2xl"
+          className="relative w-full h-[220px] md:h-[400px] lg:h-[700px] bg-cover bg-center rounded-2xl"
           style={{
             backgroundImage:
               "url('https://i.ibb.co/p621VJXW/slide2.jpg')",
@@ -54,7 +54,7 @@ const Slider = () => {
 
       <SwiperSlide>
         <div
-          className="relative w-full h-[220px] md:h-[350px] lg:h-[500px] bg-cover bg-center rounded-2xl"
+          className="relative w-full h-[220px] md:h-[400px] lg:h-[700px] bg-cover bg-center rounded-2xl"
           style={{
             backgroundImage:
               "url('https://i.ibb.co/sJvZCyhG/slide3.jpg')",
@@ -69,7 +69,7 @@ const Slider = () => {
 
       <SwiperSlide>
         <div
-          className="relative w-full h-[220px] md:h-[350px] lg:h-[500px] bg-cover bg-center rounded-2xl"
+          className="relative w-full h-[220px] md:h-[400px] lg:h-[700px] bg-cover bg-center rounded-2xl"
           style={{
             backgroundImage:
               "url('https://i.ibb.co/G4bTTpYd/slide4.jpg')",

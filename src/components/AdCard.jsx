@@ -8,7 +8,7 @@ const AdCard = ({ ad }) => {
   return (
     <div className="max-w-[600px] rounded-2xl shadow-lg bg-white overflow-hidden hover:shadow-xl transition-shadow duration-300 border-2">
       <img data-tooltip-id={tooltipId} className="w-full h-56 object-cover" src={photo} alt='' />
-      <Tooltip className="z-10" id={tooltipId}><div className="w-auto h-auto text-2xl">
+      <Tooltip className="z-10" id={tooltipId}><div className="w-80 h-70 text-2xl">
         {description}
         </div></Tooltip>
       <div className="p-4 rounded-b-2xl bg-gray-400">
