@@ -69,7 +69,7 @@ const Navbar = () => {
             <li>
               <NavLink
                 className={({ isActive }) =>
-                  isActive ? "border-b-2 border-black" : ""
+                  isActive ? "border-b-2" : ""
                 }
                 to="/"
               >
@@ -80,7 +80,7 @@ const Navbar = () => {
             <li>
               <NavLink
                 className={({ isActive }) =>
-                  isActive ? "border-b-2 border-black" : ""
+                  isActive ? "border-b-2" : ""
                 }
                 to="/addRoommate"
               >
@@ -91,7 +91,7 @@ const Navbar = () => {
             <li>
               <NavLink
                 className={({ isActive }) =>
-                  isActive ? "border-b-2 border-black" : ""
+                  isActive ? "border-b-2" : ""
                 }
                 to="/browseListing"
               >
@@ -102,7 +102,7 @@ const Navbar = () => {
             <li>
               <NavLink
                 className={({ isActive }) =>
-                  isActive ? "border-b-2 border-black" : ""
+                  isActive ? "border-b-2" : ""
                 }
                 to="/myListing"
               >

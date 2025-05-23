@@ -7,11 +7,11 @@ import { GrUpdate } from "react-icons/gr";
 
 const MyListing = () => {
   const { user } = use(AuthContext);
-  console.log(user);
+//   console.log(user);
   const allAds = useLoaderData();
-  console.log(allAds);
+//   console.log(allAds);
   const myAds = allAds.filter((ads) => ads.email == user.email);
-  console.log(myAds);
+//   console.log(myAds);
   return (
     <div>
       <div className="my-10 text-center text-2xl font-bold">My Total Ad : {myAds.length}</div>
@@ -54,9 +54,9 @@ const MyListing = () => {
                     {user.roomType}
                   </td>
                   <td>$ {user.amount} / mo</td>
-                  <th>
-                    <Link to="" className="btn btn-ghost btn-xs"><GrUpdate size={20}/></Link>
-                    <Link to="" className="btn btn-ghost btn-xs"><MdOutlineDeleteOutline size={30}/></Link>
+                  <th className="flex flex-col gap-6 md:flex-row md:gap-2">
+                    <Link to={`/updateRoommate/${user._id}`} className="btn btn-ghost btn-xs"><GrUpdate size={20}/></Link>
+                    <button className="btn btn-ghost btn-xs"><MdOutlineDeleteOutline size={30}/></button>
                   </th>
                 </tr>
               ))}

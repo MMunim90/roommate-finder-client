@@ -33,12 +33,15 @@ const router = createBrowserRouter([
         ),
       },
       {
-        path: "/updateRoommate",
+        path: "/updateRoommate/:id",
         element: (
           <PrivateRoute>
             <UpdateRoommate></UpdateRoommate>
           </PrivateRoute>
         ),
+        loader: ({ params }) =>
+          fetch(`http://localhost:3000/allAds/${params.id}`),
+        hydrateFallbackElement: <Loading></Loading>,
       },
       {
         path: "ad/:id",

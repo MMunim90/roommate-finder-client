@@ -1,139 +1,181 @@
-import React from 'react';
+import React from "react";
+import { FaArrowLeftLong } from "react-icons/fa6";
+import { Link, useLoaderData } from "react-router";
+import Swal from "sweetalert2";
 
 const UpdateRoommate = () => {
-    return (
-        <div className="p-28 bg-[url(https://i.ibb.co/q3j15yY0/11.png)] bg-cover bg-no-repeat pb-20 text-black">
-      <h1 className="font-bold text-xl">
-        <FaArrowLeftLong className="inline" /> &nbsp;
-        <Link to="/">Back to home</Link>
-      </h1>
-      <div className="p-20 text-center space-y-4">
-        <h1 className="text-6xl">Update Existing Coffee Details</h1>
+  const {
+    _id,
+    name,
+    email,
+    title,
+    location,
+    amount,
+    contact,
+    description,
+    photo
+  } = useLoaderData();
+  const handleUpdateAd = (e) => {
+    e.preventDefault();
+    const form = e.target;
+    const formData = new FormData(form);
+    const updatedAd = Object.fromEntries(formData.entries());
+    console.log(updatedAd);
+
+    // send updated coffee to the db
+    fetch(`http://localhost:3000/allAds/${_id}`, {
+      method: "PUT",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(updatedAd),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.modifiedCount) {
+          Swal.fire({
+            imageUrl: photo,
+            imageWidth: 100,
+            imageHeight: 100,
+            imageAlt: "Coffee Photo",
+            icon: "success",
+            title: "Great!",
+            text: `Update ${name} Details Successfully`,
+            draggable: true,
+          });
+        }
+      });
+  };
+  return (
+    <div className="p-4 md:px-28 md:py-15 pb-20">
+      <div className="p-4 space-y-6 mb-6 text-center">
+        <h1 className="text-6xl">Update Find Post</h1>
         <p>
-          Modify the details of an existing coffee to keep the menu accurate and
-          up to date. Adjust the name, origin, flavor notes, or pricing as
-          needed to reflect the latest changes
+          Easily Update Your Find Post to Reach More Roommates with Accurate
+          Details, Photos, and Location Across Bangladesh
         </p>
       </div>
-      <form onSubmit={handleUpdateCoffee} className="text-white">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          <fieldset className="fieldset bg-base-200 border-base-300 rounded-box border p-4">
+      <form onSubmit={handleUpdateAd} className="bg-gray-400 p-6 rounded-2xl">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+          <fieldset className="fieldset rounded-box border p-4">
             <label className="label">Name</label>
             <input
               type="text"
               name="name"
-              defaultValue={name}
+              value={name}
               className="input w-full"
-              placeholder="Enter Coffee Name"
             />
           </fieldset>
-          <fieldset className="fieldset bg-base-200 border-base-300 rounded-box border p-4">
-            <label className="label">Quantity</label>
+          <fieldset className="fieldset rounded-box border p-4">
+            <label className="label">Email</label>
+            <input
+              type="email"
+              name="email"
+              value={email}
+              className="input w-full"
+            />
+          </fieldset>
+          <fieldset className="fieldset rounded-box border p-4">
+            <label className="label">Title</label>
+            <input
+              type="text"
+              name="title"
+              defaultValue={title}
+              className="input w-full"
+              required
+            />
+          </fieldset>
+          <fieldset className="fieldset rounded-box border p-4">
+            <label className="label">Location</label>
+            <input
+              type="text"
+              name="location"
+              className="input w-full"
+              defaultValue={location}
+              required
+            />
+          </fieldset>
+          <fieldset className="fieldset rounded-box border p-4">
+            <label className="label">Rent Amount</label>
             <input
               type="number"
-              name="quantity"
-              defaultValue={quantity}
+              name="amount"
               className="input w-full"
-              placeholder="Enter Coffee Quantity"
+              defaultValue={amount}
+              required
             />
           </fieldset>
-          <fieldset className="fieldset bg-base-200 border-base-300 rounded-box border p-4">
-            <label className="label">Supplier</label>
-            <input
-              type="text"
-              name="supplier"
-              defaultValue={supplier}
-              className="input w-full"
-              placeholder="Enter Coffee Supplier"
-            />
-          </fieldset>
-          <fieldset className="fieldset bg-base-200 border-base-300 rounded-box border p-4">
-            <label className="label">Taste</label>
-            <input
-              type="text"
-              name="taste"
-              defaultValue={taste}
-              className="input w-full"
-              placeholder="Enter Coffee Taste"
-            />
-          </fieldset>
-          <fieldset className="fieldset bg-base-200 border-base-300 rounded-box border p-4">
-            <label className="label">Category</label>
-            <input
-              type="text"
-              name="category"
-              defaultValue={category}
-              className="input w-full"
-              placeholder="Enter Coffee Category"
-            />
-          </fieldset>
-          <fieldset className="fieldset bg-base-200 border-base-300 rounded-box border p-4">
-            <label className="label">Details</label>
-            <input
-              type="text"
-              name="details"
-              className="input w-full"
-              placeholder="Enter Coffee Details"
-            />
-          </fieldset>
-          <fieldset className="fieldset bg-base-200 border-base-300 rounded-box border p-4">
-            <label className="label">Details</label>
-            <input
-              type="text"
-              name="details"
-              className="input w-full"
-              placeholder="Enter Coffee Details"
-            />
-          </fieldset>
-          <fieldset className="fieldset bg-base-200 border-base-300 rounded-box border p-4">
-            <label className="label">Price</label>
+          <fieldset className="fieldset rounded-box border p-4">
+            <label className="label">Contact Info</label>
             <input
               type="number"
-              name="price"
-              defaultValue={price}
+              name="contact"
               className="input w-full"
-              placeholder="Enter Coffee Price"
+              defaultValue={contact}
+              required
             />
           </fieldset>
-          <fieldset className="fieldset bg-base-200 border-base-300 rounded-box border p-4">
-            <label className="label">Details</label>
+          <fieldset className="fieldset rounded-box border p-4">
+            <label className="label">Description</label>
             <input
               type="text"
-              name="details"
-              defaultValue={details}
+              name="description"
               className="input w-full"
-              placeholder="Enter Coffee Details"
+              defaultValue={description}
             />
           </fieldset>
-          <fieldset className="fieldset bg-base-200 border-base-300 rounded-box border p-4">
-          <label className="label">Photo</label>
-          <input
-            type="text"
-            name="photo"
-            className="input w-full"
-            placeholder="Enter Photo URL"
-          />
-        </fieldset>
-          <fieldset className="fieldset bg-base-200 border-base-300 rounded-box border p-4">
+          <fieldset className="fieldset rounded-box border p-4">
+            <label className="label">Room Type</label>
+            <select className="input w-full" name="roomType" required>
+              <option>Select</option>
+              <option value="Single">Single</option>
+              <option value="Shared">Shared</option>
+              <option value="Other">Other</option>
+            </select>
+          </fieldset>
+          <fieldset className="fieldset rounded-box border p-4">
+            <label className="label">Lifestyle Preferences</label>
+            <select className="input w-full" name="lifestyle">
+              <option>Select</option>
+              <option value="Pets">Pets</option>
+              <option value="Smoking">Smoking</option>
+              <option value="Night Owl">Night Owl</option>
+              <option value="Other">Other</option>
+            </select>
+          </fieldset>
+          <fieldset className="fieldset rounded-box border p-4">
             <label className="label">Photo</label>
             <input
               type="text"
               name="photo"
-              defaultValue={photo}
               className="input w-full"
-              placeholder="Enter Photo URL"
+              defaultValue={photo}
             />
+          </fieldset>
+          <fieldset className="fieldset rounded-box border p-4">
+            <label className="label">Availability</label>
+            <select className="input w-full" name="availability">
+              <option value="Available">Available</option>
+              <option value="Available Soon">Available Soon</option>
+              <option value="Not Available">Not Available</option>
+            </select>
           </fieldset>
         </div>
 
-        <input
-          type="submit"
-          className="btn w-full mt-6 bg-[#D2B48C] font-rancho text-lg border-black border-2"
-          value="Update Coffee Details"
-        />
+        <div className="flex justify-center items-center gap-6 mt-10">
+          <input
+            type="submit"
+            className="btn bg-black text-white text-lg border-black border-2"
+            value=" Update"
+          />
+          <h1 className="btn font-bold text-lg border-black border-2">
+            <FaArrowLeftLong className="inline" /> &nbsp;
+            <Link to="/myListing">My Listing</Link>
+          </h1>
+        </div>
       </form>
     </div>
-    );
+  );
 };
 
 export default UpdateRoommate;
