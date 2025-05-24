@@ -20,4 +20,6 @@ Features :
 
 - Light and Dark Mode Toggle Feature,
 
-- CRUD Method.
+- CRUD Method,
+
+- Find Room by Search.
