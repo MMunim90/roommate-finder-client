@@ -9,7 +9,7 @@ webpage name : Find Mate
 purpose : Find Mate is a roommate finding platform designed to connect individuals with compatible living partners based on preferences, location, budget, and lifestyle. It simplifies the search process through verified profiles and listings, ensuring safety and trust. Whether you're looking for a room or a roommate, Find Mate helps you find the right match quickly and easily, making shared living more comfortable, convenient, and stress-free.
 
 # Technologies
-Vite, nodejs, React.js , localstorage, React Router DOM, Tailwind CSS, DaisyUI, React Icons, React-hot-toast
+Vite, nodejs, React.js , localstorage, React Router DOM, Tailwind CSS, DaisyUI, React Icons, React-hot-toast, MongoDB, expressJS
 
 # Features : 
 
