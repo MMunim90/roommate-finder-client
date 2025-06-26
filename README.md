@@ -6,7 +6,7 @@ project name : Roommate Finding Platform
 
 webpage name : Find Mate
 
-Roommate Finding Platform Server Repository -> [Click Here](https://github.com/MMunim90/roommate-finder-server)
+### Roommate Finding Platform Server Repository -> [Click Here](https://github.com/MMunim90/roommate-finder-server)
 
 purpose : Find Mate is a roommate finding platform designed to connect individuals with compatible living partners based on preferences, location, budget, and lifestyle. It simplifies the search process through verified profiles and listings, ensuring safety and trust. Whether you're looking for a room or a roommate, Find Mate helps you find the right match quickly and easily, making shared living more comfortable, convenient, and stress-free.
 
