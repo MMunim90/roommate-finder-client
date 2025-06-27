@@ -42,7 +42,7 @@ const Navbar = () => {
       });
   };
   return (
-    <div className="navbar bg-gray-400 shadow-sm rounded-b-2xl px-4">
+    <div className="navbar bg-gray-400 shadow-sm px-4">
       <div className="navbar-start">
         <div className="dropdown">
           <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -127,7 +127,7 @@ const Navbar = () => {
         </div>
       </div>
       <div className="navbar-center hidden lg:flex">
-        <ul className="menu menu-horizontal px-1 text-xl">
+        <ul className="menu menu-horizontal px-1 text-sm">
           <li>
             <NavLink
               className={({ isActive }) =>
@@ -177,7 +177,7 @@ const Navbar = () => {
       <div className="navbar-end">
         <div className="flex gap-4 items-center">
           {!user ? (
-            <div className=" md:text-xl font-bold btn btn-outline border-black rounded-xl cursor-pointer">
+            <div className="hidden md:block md:text-xl font-bold btn btn-outline border-black rounded-xl cursor-pointer md:pt-1">
               <Link to="/register" className="cursor-pointer">
                 Register
               </Link>

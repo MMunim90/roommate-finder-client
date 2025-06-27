@@ -1,0 +1,27 @@
+[33meb1ddd2[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m)[m HEAD@{0}: reset: moving to HEAD~1
+[33mc440c50[m[33m ([m[1;31morigin/main[m[33m)[m HEAD@{1}: pull origin main --rebase (finish): returning to refs/heads/main
+[33mc440c50[m[33m ([m[1;31morigin/main[m[33m)[m HEAD@{2}: pull origin main --rebase (pick): add aboutUs, support, termsofuse, faq components
+[33meb1ddd2[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m)[m HEAD@{3}: pull origin main --rebase (start): checkout eb1ddd234b640aec7cc0c9a5364fc1595db8710b
+[33m8e909e9[m HEAD@{4}: commit: add aboutUs, support, termsofuse, faq components
+[33maf11abe[m HEAD@{5}: commit: fix responsive problem on popular cities section
+[33mee69d0a[m HEAD@{6}: commit: implement search option on browslisting page
+[33meb994cf[m HEAD@{7}: commit: Readme update
+[33maaae6e7[m HEAD@{8}: commit: add profile section and fix some error
+[33m9aca0fd[m HEAD@{9}: commit: browse listing section complete
+[33m814107a[m HEAD@{10}: commit: implement delete button on mylist page
+[33mbb29112[m HEAD@{11}: commit: update find post page completed
+[33m945ead0[m HEAD@{12}: commit: my listing page completed
+[33m3a075a6[m HEAD@{13}: commit: add dark theme
+[33m267636c[m HEAD@{14}: commit: implemnt react awesome revel
+[33ma18c4e8[m HEAD@{15}: commit: implement private route
+[33m6649c0f[m HEAD@{16}: commit: implement Login and Registration
+[33mf76b846[m HEAD@{17}: commit: add Ad Detailes Section and update readme
+[33mbb28de8[m HEAD@{18}: commit: add gredient on popular cities
+[33m43fa41e[m HEAD@{19}: commit: add popular cities section
+[33m355743a[m HEAD@{20}: commit: implement reactsimple typewriter on slider
+[33m4a65660[m HEAD@{21}: commit: add slider on home page
+[33m597e37e[m HEAD@{22}: commit: responsive add to find roommate page
+[33m95fe215[m HEAD@{23}: commit: added ad card on home page
+[33m44a6a27[m HEAD@{24}: commit: added add to find roommate section
+[33m7f1b645[m HEAD@{25}: Branch: renamed refs/heads/main to refs/heads/main
+[33m7f1b645[m HEAD@{27}: commit (initial): first commit

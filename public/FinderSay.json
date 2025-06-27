@@ -1,0 +1,65 @@
+[
+  {
+    "id": 1,
+    "name": "Ariana Patel",
+    "photo": "https://randomuser.me/api/portraits/women/44.jpg",
+    "occupation": "Software Engineer",
+    "say": "Find Mate helped me find a reliable roommate in just a few days. The platform is simple, fast, and trustworthy!"
+  },
+  {
+    "id": 2,
+    "name": "Jacob Lee",
+    "photo": "https://randomuser.me/api/portraits/men/22.jpg",
+    "occupation": "Freelance Designer",
+    "say": "I was struggling to find a roommate in Dhaka, but Find Mate made it super easy. Highly recommended!"
+  },
+  {
+    "id": 3,
+    "name": "Mehjabin Chowdhury",
+    "photo": "https://randomuser.me/api/portraits/women/68.jpg",
+    "occupation": "University Student",
+    "say": "The experience was smooth and hassle-free. Loved the user-friendly interface and quick results."
+  },
+  {
+    "id": 4,
+    "name": "Rifat Rahman",
+    "photo": "https://randomuser.me/api/portraits/men/45.jpg",
+    "occupation": "Banking Professional",
+    "say": "Find Mate is a lifesaver! I found a great flatmate in my budget range, all thanks to this site."
+  },
+  {
+    "id": 5,
+    "name": "Sadia Anwar",
+    "photo": "https://randomuser.me/api/portraits/women/33.jpg",
+    "occupation": "Medical Intern",
+    "say": "As a student, it was hard to find trusted roommates. Find Mate gave me the peace of mind I needed."
+  },
+  {
+    "id": 6,
+    "name": "Nayeem Islam",
+    "photo": "https://randomuser.me/api/portraits/men/31.jpg",
+    "occupation": "Remote Developer",
+    "say": "Super helpful! The matching system actually works and connects you with serious people."
+  },
+  {
+    "id": 7,
+    "name": "Tania Hossain",
+    "photo": "https://randomuser.me/api/portraits/women/11.jpg",
+    "occupation": "Marketing Executive",
+    "say": "I love how Find Mate filters based on preferences like location and budget. Made my search so much easier!"
+  },
+  {
+    "id": 8,
+    "name": "Farhan Kabir",
+    "photo": "https://randomuser.me/api/portraits/men/52.jpg",
+    "occupation": "Civil Engineer",
+    "say": "I needed a roommate urgently in Chittagong, and Find Mate made it possible within 2 days. Great platform!"
+  },
+  {
+    "id": 9,
+    "name": "Lubna Yasmin",
+    "photo": "https://randomuser.me/api/portraits/women/47.jpg",
+    "occupation": "Content Writer",
+    "say": "I was hesitant at first, but the profiles were genuine and verified. Find Mate really exceeded my expectations!"
+  }
+]

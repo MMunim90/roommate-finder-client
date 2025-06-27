@@ -1,10 +1,11 @@
 import React from "react";
 import { FaFacebook, FaInstagram, FaTwitter } from "react-icons/fa6";
+import { Link } from "react-router";
 
 const Footer = () => {
   return (
     <div className="rounded">
-      <footer className="footer sm:footer-horizontal bg-gray-400 text-base-content py-6 px-10 rounded-t-2xl">
+      <footer className="footer sm:footer-horizontal bg-gray-400 text-base-content py-6 px-10">
         <nav>
           <h6 className="footer-title">Contact</h6>
           <a className="link link-hover">+880 454478824</a>
@@ -12,13 +13,13 @@ const Footer = () => {
         </nav>
         <nav>
           <h6 className="footer-title">Company</h6>
-          <a className="link link-hover">About us</a>
-          <a className="link link-hover">Contact</a>
+          <Link to='/aboutUs' className="link link-hover">About us</Link>
+          <Link to='/support' className="link link-hover">Support</Link>
         </nav>
         <nav>
           <h6 className="footer-title">Legal</h6>
-          <a className="link link-hover">Terms of use</a>
-          <a className="link link-hover">Privacy policy</a>
+          <Link to='/termOfUse' className="link link-hover">Terms of use</Link>
+          <Link to='/faq' className="link link-hover">FAQ's</Link>
         </nav>
       </footer>
       <footer className="footer bg-gray-400 text-base-content border-base-300 border-t px-10 py-4">

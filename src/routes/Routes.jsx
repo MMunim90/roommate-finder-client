@@ -12,6 +12,10 @@ import Login from "../Page/Login";
 import MyListing from "../Page/MyListing";
 import BrowseListing from "../Page/BrowseListing";
 import Profile from "../Page/Profile";
+import AboutUs from "../Page/AboutUs";
+import Support from "../Page/Support";
+import TermsOfUse from "../Page/TermsOfUse";
+import Faq from "../Page/Faq";
 
 const router = createBrowserRouter([
   {
@@ -78,6 +82,22 @@ const router = createBrowserRouter([
       {
         path: "register",
         element: <Register></Register>,
+      },
+      {
+        path: "aboutUs",
+        element: <AboutUs></AboutUs>,
+      },
+      {
+        path: "support",
+        element: <Support></Support>,
+      },
+      {
+        path: "termOfUse",
+        element: <TermsOfUse></TermsOfUse>,
+      },
+      {
+        path: "faq",
+        element: <Faq></Faq>,
       },
     ],
   },
