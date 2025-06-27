@@ -5,24 +5,27 @@ import { AuthContext } from "../Provider/AuthProvider";
 import { SiBookmyshow } from "react-icons/si";
 import { CgBrowse, CgProfile } from "react-icons/cg";
 import { MdDarkMode, MdPlaylistAddCircle } from "react-icons/md";
-import { FaHome } from "react-icons/fa";
-import { BiLogOut } from "react-icons/bi";
+import { FaHome, FaUserFriends } from "react-icons/fa";
+import { BiLogOut, BiSupport } from "react-icons/bi";
 import Swal from "sweetalert2";
+import { IoDocumentOutline } from "react-icons/io5";
 
 const Navbar = () => {
   const { user, logOut } = use(AuthContext);
-  const [theme, setTheme] = useState(localStorage.getItem("theme") ? localStorage.getItem("theme") : "light");
+  const [theme, setTheme] = useState(
+    localStorage.getItem("theme") ? localStorage.getItem("theme") : "light"
+  );
 
   const handleToggle = (e) => {
-    if(e.target.checked){
-      setTheme('dark');
-    }else{
+    if (e.target.checked) {
+      setTheme("dark");
+    } else {
       setTheme("light");
     }
-  }
+  };
 
   useEffect(() => {
-    localStorage.setItem('theme', theme);
+    localStorage.setItem("theme", theme);
     const localTheme = localStorage.getItem("theme");
     document.querySelector("html").setAttribute("data-theme", localTheme);
   }, [theme]);
@@ -68,9 +71,7 @@ const Navbar = () => {
           >
             <li>
               <NavLink
-                className={({ isActive }) =>
-                  isActive ? "border-b-2" : ""
-                }
+                className={({ isActive }) => (isActive ? "border-b-2" : "")}
                 to="/"
               >
                 <FaHome />
@@ -80,18 +81,18 @@ const Navbar = () => {
             <li>
               <NavLink
                 className={({ isActive }) =>
-                  isActive ? "border-b-2" : ""
+                  isActive ? "border-b-2 border-black" : ""
                 }
-                to="/addRoommate"
+                to="/aboutUs"
               >
-                <MdPlaylistAddCircle />
-                Add to Find
+                <FaUserFriends />
+                About Us
               </NavLink>
             </li>
             <li>
               <NavLink
                 className={({ isActive }) =>
-                  isActive ? "border-b-2" : ""
+                  isActive ? "border-b-2 border-black" : ""
                 }
                 to="/browseListing"
               >
@@ -102,14 +103,55 @@ const Navbar = () => {
             <li>
               <NavLink
                 className={({ isActive }) =>
-                  isActive ? "border-b-2" : ""
+                  isActive ? "border-b-2 border-black" : ""
                 }
-                to="/myListing"
+                to="/support"
               >
-                <SiBookmyshow />
-                My Listings
+                <BiSupport />
+                Support
               </NavLink>
             </li>
+            <li>
+              <NavLink
+                className={({ isActive }) =>
+                  isActive ? "border-b-2 border-black" : ""
+                }
+                to="/termOfUse"
+              >
+                <IoDocumentOutline />
+                Terms
+              </NavLink>
+            </li>
+            {user ? (
+              <li>
+                <NavLink
+                  className={({ isActive }) =>
+                    isActive ? "border-b-2 border-black" : ""
+                  }
+                  to="/addRoommate"
+                >
+                  <MdPlaylistAddCircle />
+                  Add to Find
+                </NavLink>
+              </li>
+            ) : (
+              ""
+            )}
+            {user ? (
+              <li>
+                <NavLink
+                  className={({ isActive }) =>
+                    isActive ? "border-b-2 border-black" : ""
+                  }
+                  to="/myListing"
+                >
+                  <SiBookmyshow />
+                  My Listings
+                </NavLink>
+              </li>
+            ) : (
+              ""
+            )}
           </ul>
         </div>
         <div className="flex items-center">
@@ -118,10 +160,7 @@ const Navbar = () => {
             src="https://i.ibb.co/WNpY4jYv/logo.png"
             alt=""
           />
-          <Link
-            to="/"
-            className="btn btn-ghost font-bold text-lg md:text-2xl"
-          >
+          <Link to="/" className="btn btn-ghost font-bold text-lg md:text-2xl">
             Find Mate
           </Link>
         </div>
@@ -144,38 +183,75 @@ const Navbar = () => {
               className={({ isActive }) =>
                 isActive ? "border-b-2 border-black" : ""
               }
+              to="/aboutUs"
+            >
+              <FaUserFriends />
+              About Us
+            </NavLink>
+          </li>
+          <li>
+            <NavLink
+              className={({ isActive }) =>
+                isActive ? "border-b-2 border-black" : ""
+              }
               to="/browseListing"
             >
               <CgBrowse />
               Browse Listing
             </NavLink>
           </li>
-          {
-            user ? (<li>
+          <li>
             <NavLink
               className={({ isActive }) =>
                 isActive ? "border-b-2 border-black" : ""
               }
-              to="/addRoommate"
+              to="/support"
             >
-              <MdPlaylistAddCircle />
-              Add to Find
+              <BiSupport />
+              Support
             </NavLink>
-          </li>) : ''
-          }
-          {
-            user ? (<li>
+          </li>
+          <li>
             <NavLink
               className={({ isActive }) =>
                 isActive ? "border-b-2 border-black" : ""
               }
-              to="/myListing"
+              to="/termOfUse"
             >
-              <SiBookmyshow />
-              My Listings
+              <IoDocumentOutline />
+              Terms
             </NavLink>
-          </li>) : ''
-          }
+          </li>
+          {user ? (
+            <li>
+              <NavLink
+                className={({ isActive }) =>
+                  isActive ? "border-b-2 border-black" : ""
+                }
+                to="/addRoommate"
+              >
+                <MdPlaylistAddCircle />
+                Add to Find
+              </NavLink>
+            </li>
+          ) : (
+            ""
+          )}
+          {user ? (
+            <li>
+              <NavLink
+                className={({ isActive }) =>
+                  isActive ? "border-b-2 border-black" : ""
+                }
+                to="/myListing"
+              >
+                <SiBookmyshow />
+                My Listings
+              </NavLink>
+            </li>
+          ) : (
+            ""
+          )}
         </ul>
       </div>
       <div className="navbar-end">
@@ -227,7 +303,8 @@ const Navbar = () => {
                 </a>
               </li>
               {user ? (
-                <NavLink to='/profile'
+                <NavLink
+                  to="/profile"
                   className="btn bg-black text-white cursor-pointer text-xl"
                 >
                   <CgProfile />
@@ -238,7 +315,7 @@ const Navbar = () => {
               )}
               <button className="btn bg-black text-white cursor-pointer">
                 <label className="swap swap-rotate">
-                  <input type="checkbox" onClick={handleToggle}/>
+                  <input type="checkbox" onClick={handleToggle} />
                   <svg
                     className="swap-on h-10 w-10 fill-current"
                     xmlns="http://www.w3.org/2000/svg"

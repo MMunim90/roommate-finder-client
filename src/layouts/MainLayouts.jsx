@@ -19,16 +19,16 @@ const MainLayouts = () => {
   }
 `;
   return (
-    <div>
+    <div className="w-11/12 mx-auto">
       <div className="sticky top-0 z-10">
         <Header></Header>
       </div>
       {location.pathname === "/" && (
         <Fade direction="down" keyframes={slightFadeDown}>
-          <Slider />
+            <Slider />
         </Fade>
       )}
-      <div className="w-11/12 mx-auto">
+      <div>
         <Outlet></Outlet>
       </div>
       <Footer></Footer>

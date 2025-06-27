@@ -45,14 +45,14 @@ const AdDetails = () => {
     toast.success("Unliked!");
   };
   return (
-    <div className="pb-20 my-10">
+    <div className="pb-16 my-10">
       <div className="font-extrabold text-2xl mb-10 text-center">
         {liked ? `${count} people interested in` : ""}
       </div>
       <div className="grid grid-cols-1 items-center justify-center p-4 md:p-10 text-black bg-[#F4F3F0] rounded-lg">
         <figure>
           <img
-            className="rounded-lg w-full md:h-[400px] lg:h-[800px] object-cover"
+            className="rounded-2xl w-full md:h-[400px] lg:h-[800px] object-cover"
             src={photo}
             alt=""
           />
