@@ -10,6 +10,25 @@ const BrowseListing = () => {
   const allAds = useLoaderData();
   const [find, setFind] = useState(allAds);
   const [searchText, setSearchText] = useState("");
+  const [sortBy, setSortBy] = useState("amount");
+  const [sortOrder, setSortOrder] = useState("asc");
+
+  const fetchSortedFilteredAds = async (
+    newSortBy = sortBy,
+    newSortOrder = sortOrder
+  ) => {
+    try {
+      setSortBy(newSortBy);
+      setSortOrder(newSortOrder);
+      const res = await fetch(
+        `https://roommate-finder-server-eight.vercel.app/allAds?sortBy=${newSortBy}&order=${newSortOrder}`
+      );
+      const data = await res.json();
+      setFind(data);
+    } catch (err) {
+      console.error("Error fetching sorted/filtered ads:", err);
+    }
+  };
 
   const handleSearch = (e, text) => {
     e.preventDefault();
@@ -35,21 +54,20 @@ const BrowseListing = () => {
 
   return (
     <div className="my-10">
-
       <Fade direction="down" keyframes={slightFadeDown}>
-      <div className="text-center mb-16 bg-gradient-to-r from-gray-400 to-gray-700 py-12 px-6 rounded-lg shadow-lg">
-        <h2 className="text-5xl font-extrabold mb-4">Why Use Find Mate?</h2>
-        <p className="text-lg mb-4 opacity-70">
-          Connecting roommates across cities in a safe and smart way.
-        </p>
-        <p className="text-sm opacity-50 max-w-3xl mx-auto">
-          Whether you're a student, a professional, or someone relocating —
-          Find Mate makes it easy to search, connect, and match with the right
-          roommate. Browse listings by location, rent range, or preferences, and
-          find a trusted flatmate today!
-        </p>
-      </div>
-    </Fade>
+        <div className="text-center mb-16 bg-gradient-to-r from-gray-400 to-gray-700 py-12 px-6 rounded-lg shadow-lg">
+          <h2 className="text-5xl font-extrabold mb-4">Why Use Find Mate?</h2>
+          <p className="text-lg mb-4 opacity-70">
+            Connecting roommates across cities in a safe and smart way.
+          </p>
+          <p className="text-sm opacity-50 max-w-3xl mx-auto">
+            Whether you're a student, a professional, or someone relocating —
+            Find Mate makes it easy to search, connect, and match with the right
+            roommate. Browse listings by location, rent range, or preferences,
+            and find a trusted flatmate today!
+          </p>
+        </div>
+      </Fade>
       {/* Search Form */}
       <form
         onSubmit={(e) => {
@@ -73,6 +91,26 @@ const BrowseListing = () => {
         </button>
       </form>
 
+      <div className="flex justify-center items-center gap-4 mb-6">
+        <select
+          onChange={(e) => fetchSortedFilteredAds(e.target.value, sortOrder)}
+          className="border p-2 rounded"
+          defaultValue="amount"
+        >
+          <option className="text-black" value="amount">Sort by Rent</option>
+          <option className="text-black" value="title">Sort by Title</option>
+        </select>
+
+        <select
+          onChange={(e) => fetchSortedFilteredAds(sortBy, e.target.value)}
+          className="border p-2 rounded"
+          defaultValue="asc"
+        >
+          <option className="text-black" value="asc">Ascending</option>
+          <option className="text-black" value="desc">Descending</option>
+        </select>
+      </div>
+
       {/* Card Grid */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 px-4 md:px-12 my-10">
         {find.map((user) => {
@@ -95,7 +133,9 @@ const BrowseListing = () => {
               <div className="p-4 flex flex-col flex-grow rounded-b-2xl bg-gray-400">
                 <div className="flex-grow">
                   <h2 className="text-xl font-semibold mb-1">{user.title}</h2>
-                  <div className="text-md mt-3 font-bold flex items-center gap-1"><MdLocationPin /> <p>{user.location}</p></div>
+                  <div className="text-md mt-3 font-bold flex items-center gap-1">
+                    <MdLocationPin /> <p>{user.location}</p>
+                  </div>
                   <div className="flex items-center mb-2">
                     <span className="text-sm font-medium">
                       {user.availability}
