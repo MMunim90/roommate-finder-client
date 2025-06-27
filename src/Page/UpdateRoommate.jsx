@@ -4,6 +4,7 @@ import { Link, useLoaderData, useNavigate } from "react-router";
 import Swal from "sweetalert2";
 import { keyframes } from "@emotion/react";
 import { Fade } from "react-awesome-reveal";
+import { Helmet } from "react-helmet-async";
 
 const UpdateRoommate = () => {
   const navigate = useNavigate();
@@ -62,7 +63,27 @@ const UpdateRoommate = () => {
   }
 `;
   return (
-    <div className="p-4 md:px-28 md:py-15 pb-20">
+    <div className="p-4 md:p-8 pb-12">
+      <Helmet>
+        <title>Update Find Post | Find Mate</title>
+      </Helmet>
+      <Fade direction="down" keyframes={slightFadeDown}>
+        <div className="text-center mb-12 bg-gradient-to-r from-gray-400 to-gray-700 py-12 px-6 rounded-lg shadow-lg text-white">
+          <h2 className="text-5xl font-extrabold mb-4">
+            Update Your Roommate Post
+          </h2>
+          <p className="text-lg mb-4 opacity-90">
+            Keep your ad fresh and relevant to attract the right flatmate!
+          </p>
+          <p className="text-sm opacity-80 max-w-3xl mx-auto">
+            Whether your availability has changed, you’ve found a partial match,
+            or want to adjust details like rent or preferences — updating your
+            Find Mate listing ensures more accurate and quicker responses. Stay
+            visible and make your post stand out!
+          </p>
+        </div>
+      </Fade>
+
       <Fade direction="down" keyframes={slightFadeDown}>
         <div className="p-4 space-y-6 mb-6 text-center">
           <h1 className="text-6xl">Update Find Post</h1>

@@ -160,7 +160,7 @@ const Navbar = () => {
             src="https://i.ibb.co/WNpY4jYv/logo.png"
             alt=""
           />
-          <Link to="/" className="btn btn-ghost font-bold text-lg md:text-2xl">
+          <Link to="/" className="btn font-bold text-lg md:text-2xl bg-gray-400 border-none shadow-none">
             Find Mate
           </Link>
         </div>

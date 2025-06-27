@@ -5,6 +5,7 @@ import { Tooltip } from "react-tooltip";
 import { keyframes } from "@emotion/react";
 import { Fade } from "react-awesome-reveal";
 import { MdLocationPin } from "react-icons/md";
+import { Helmet } from "react-helmet-async";
 
 const BrowseListing = () => {
   const allAds = useLoaderData();
@@ -54,6 +55,9 @@ const BrowseListing = () => {
 
   return (
     <div className="my-10">
+      <Helmet>
+        <title>All Post | Find Mate</title>
+      </Helmet>
       <Fade direction="down" keyframes={slightFadeDown}>
         <div className="text-center mb-16 bg-gradient-to-r from-gray-400 to-gray-700 py-12 px-6 rounded-lg shadow-lg">
           <h2 className="text-5xl font-extrabold mb-4">Why Use Find Mate?</h2>
@@ -97,8 +101,12 @@ const BrowseListing = () => {
           className="border p-2 rounded"
           defaultValue="amount"
         >
-          <option className="text-black" value="amount">Sort by Rent</option>
-          <option className="text-black" value="title">Sort by Title</option>
+          <option className="text-black" value="amount">
+            Sort by Rent
+          </option>
+          <option className="text-black" value="title">
+            Sort by Title
+          </option>
         </select>
 
         <select
@@ -106,8 +114,12 @@ const BrowseListing = () => {
           className="border p-2 rounded"
           defaultValue="asc"
         >
-          <option className="text-black" value="asc">Ascending</option>
-          <option className="text-black" value="desc">Descending</option>
+          <option className="text-black" value="asc">
+            Ascending
+          </option>
+          <option className="text-black" value="desc">
+            Descending
+          </option>
         </select>
       </div>
 
@@ -124,7 +136,7 @@ const BrowseListing = () => {
                 data-tooltip-id={tooltipId}
                 className="w-full h-56 object-cover"
                 src={user.photo}
-                alt=""
+                alt=''
               />
               <Tooltip className="z-10" id={tooltipId}>
                 <div className="w-80 h-70 text-2xl">{user.description}</div>

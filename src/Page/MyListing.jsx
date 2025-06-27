@@ -7,6 +7,7 @@ import { GrUpdate } from "react-icons/gr";
 import Swal from "sweetalert2";
 import { Fade } from "react-awesome-reveal";
 import { keyframes } from "@emotion/react";
+import { Helmet } from "react-helmet-async";
 
 const MyListing = () => {
   const { user } = use(AuthContext);
@@ -59,6 +60,9 @@ const MyListing = () => {
 `;
   return (
     <div>
+      <Helmet>
+        <title>My Listing | Find Mate</title>
+      </Helmet>
       <Fade direction="down" keyframes={slightFadeDown}>
         <div className="my-10 text-center text-2xl font-bold">
           My Total Ad : {myAds.length}

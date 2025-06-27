@@ -7,6 +7,7 @@ import PopularCities from "../components/PopularCities";
 import { Fade } from "react-awesome-reveal";
 import { keyframes } from "@emotion/react";
 import FindersSay from "../components/FinderSay";
+import { Helmet } from "react-helmet-async";
 
 const Home = () => {
   const slightFadeDown = keyframes`
@@ -23,6 +24,9 @@ const Home = () => {
   //   console.log(allAds);
   return (
     <div className="space-y-6 my-6">
+      <Helmet>
+        <title>Home | Find Mate</title>
+      </Helmet>
       <Fade direction="down" keyframes={slightFadeDown}>
         <h1 className="font-bold text-3xl lg:text-5xl text-center my-10">
           Featured Roommates Post

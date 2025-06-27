@@ -4,6 +4,7 @@ import { AiFillLike, AiOutlineLike } from "react-icons/ai";
 import { FaArrowLeftLong } from "react-icons/fa6";
 import { Link, useLoaderData } from "react-router";
 import { AuthContext } from "../Provider/AuthProvider";
+import { Helmet } from "react-helmet-async";
 
 const AdDetails = () => {
   const [liked, setLiked] = useState(false);
@@ -46,6 +47,9 @@ const AdDetails = () => {
   };
   return (
     <div className="pb-16 my-10">
+      <Helmet>
+        <title>Details | Find Mate</title>
+      </Helmet>
       <div className="font-extrabold text-2xl mb-10 text-center">
         {liked ? `${count} people interested in` : ""}
       </div>
@@ -90,24 +94,24 @@ const AdDetails = () => {
           </div>
 
           <div className="px-6 lg:mt-10">
-            {
-            email !== user.email && <button className="flex items-center gap-4">
-              <span className="text-2xl">Like This ?</span>{" "}
-              {liked ? (
-                <AiFillLike
-                  size={30}
-                  onClick={() => handleUnlike()}
-                  className="inline cursor-pointer"
-                />
-              ) : (
-                <AiOutlineLike
-                  size={30}
-                  onClick={() => handleLike()}
-                  className="inline cursor-pointer"
-                />
-              )}
-            </button>
-            }
+            {email !== user.email && (
+              <button className="flex items-center gap-4">
+                <span className="text-2xl">Like This ?</span>{" "}
+                {liked ? (
+                  <AiFillLike
+                    size={30}
+                    onClick={() => handleUnlike()}
+                    className="inline cursor-pointer"
+                  />
+                ) : (
+                  <AiOutlineLike
+                    size={30}
+                    onClick={() => handleLike()}
+                    className="inline cursor-pointer"
+                  />
+                )}
+              </button>
+            )}
             <br />
             {liked ? (
               <p className="text-2xl">

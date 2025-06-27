@@ -5,6 +5,7 @@ import Swal from "sweetalert2";
 import { AuthContext } from "../Provider/AuthProvider";
 import { Fade } from "react-awesome-reveal";
 import { keyframes } from "@emotion/react";
+import { Helmet } from "react-helmet-async";
 
 const AddRoommate = () => {
   const { user } = use(AuthContext);
@@ -49,7 +50,27 @@ const AddRoommate = () => {
   }
 `;
   return (
-    <div className="p-4 md:p-28 pb-20">
+    <div className="p-4 md:p-8 pb-12">
+      <Helmet>
+        <title>Ad Find Post | Find Mate</title>
+      </Helmet>
+      <Fade direction="down" keyframes={slightFadeDown}>
+        <div className="text-center mb-12 bg-gradient-to-r from-gray-400 to-gray-700 py-12 px-6 rounded-lg shadow-lg text-white">
+          <h2 className="text-5xl font-extrabold mb-4">
+            Post Your Roommate Ad
+          </h2>
+          <p className="text-lg mb-4 opacity-90">
+            Looking for a flatmate? Let others find you!
+          </p>
+          <p className="text-sm opacity-80 max-w-3xl mx-auto">
+            Whether you have a spare room, a shared flat, or you're subletting —
+            post your listing easily on Find Mate. Reach verified users nearby
+            and connect with the perfect roommate who matches your lifestyle,
+            budget, and schedule.
+          </p>
+        </div>
+      </Fade>
+
       <Fade direction="down" keyframes={slightFadeDown}>
         <div className="p-4 space-y-4 flex flex-col mb-6">
           <h1 className="text-4xl lg:text-6xl text-center">
@@ -164,13 +185,13 @@ const AddRoommate = () => {
           </fieldset>
         </div>
         <fieldset className="fieldset rounded-box border p-4 mt-6">
-            <label className="label">Availability</label>
-            <select className="input w-full" name="availability">
-              <option value="Available">Available</option>
-              <option value="Available Soon">Available Soon</option>
-              <option value="Not Available">Not Available</option>
-            </select>
-          </fieldset>
+          <label className="label">Availability</label>
+          <select className="input w-full" name="availability">
+            <option value="Available">Available</option>
+            <option value="Available Soon">Available Soon</option>
+            <option value="Not Available">Not Available</option>
+          </select>
+        </fieldset>
 
         <div className="flex justify-center items-center gap-6 mt-10">
           <input

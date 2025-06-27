@@ -9,6 +9,7 @@ import Swal from "sweetalert2";
 
 import loginLottie from "../../src/assets/lottie/register.json";
 import Lottie from "lottie-react";
+import { Helmet } from "react-helmet-async";
 
 const Register = () => {
   const { createUser, setUser, updateUserProfile, signInWithGoogle } =
@@ -102,6 +103,9 @@ const Register = () => {
   }, [passwordError]);
   return (
     <div className="hero-content flex-col lg:flex-row">
+      <Helmet>
+        <title>Register | Find Mate</title>
+      </Helmet>
       <div className="text-center lg:text-left w-[250px] md:w-[400px] lg:w-[600px]">
         <Lottie animationData={loginLottie} loop={true}></Lottie>
       </div>
