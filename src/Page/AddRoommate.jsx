@@ -1,6 +1,6 @@
 import React, { use } from "react";
 import { FaArrowLeftLong } from "react-icons/fa6";
-import { Link } from "react-router";
+import { Link, useNavigate } from "react-router";
 import Swal from "sweetalert2";
 import { AuthContext } from "../Provider/AuthProvider";
 import { Fade } from "react-awesome-reveal";
@@ -8,6 +8,7 @@ import { keyframes } from "@emotion/react";
 import { Helmet } from "react-helmet-async";
 
 const AddRoommate = () => {
+  const navigate = useNavigate();
   const { user } = use(AuthContext);
   const handleAddRoommate = (e) => {
     e.preventDefault();
@@ -17,7 +18,7 @@ const AddRoommate = () => {
     const newAd = Object.fromEntries(formData.entries());
     // console.log(newAd);
 
-    // send coffee data to the database
+    // send data to the database
     fetch("https://roommate-finder-server-eight.vercel.app/allAds", {
       method: "POST",
       headers: {
@@ -200,7 +201,7 @@ const AddRoommate = () => {
             value="Add"
           />
           <h1 className="btn font-bold text-lg border-black border-2">
-            <Link to="/">Cancel</Link>
+            <Link onClick={() => navigate(-1)}>Cancel</Link>
           </h1>
         </div>
       </form>

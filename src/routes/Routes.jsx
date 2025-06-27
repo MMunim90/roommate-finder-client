@@ -16,6 +16,7 @@ import AboutUs from "../Page/AboutUs";
 import Support from "../Page/Support";
 import TermsOfUse from "../Page/TermsOfUse";
 import Faq from "../Page/Faq";
+import DashBoard from "../Page/DashBoard";
 
 const router = createBrowserRouter([
   {
@@ -29,14 +30,14 @@ const router = createBrowserRouter([
         loader: () => fetch("https://roommate-finder-server-eight.vercel.app/allAds"),
         hydrateFallbackElement: <Loading></Loading>,
       },
-      {
-        path: "/addRoommate",
-        element: (
-          <PrivateRoute>
-            <AddRoommate></AddRoommate>
-          </PrivateRoute>
-        ),
-      },
+      // {
+      //   path: "/addRoommate",
+      //   element: (
+      //     <PrivateRoute>
+      //       <AddRoommate></AddRoommate>
+      //     </PrivateRoute>
+      //   ),
+      // },
       {
         path: "/updateRoommate/:id",
         element: (
@@ -59,16 +60,16 @@ const router = createBrowserRouter([
         ),
         hydrateFallbackElement: <Loading></Loading>,
       },
-      {
-        path: "myListing",
-        element: (
-          <PrivateRoute>
-            <MyListing></MyListing>
-          </PrivateRoute>
-        ),
-        loader: () => fetch("https://roommate-finder-server-eight.vercel.app/allAds"),
-        hydrateFallbackElement: <Loading></Loading>,
-      },
+      // {
+      //   path: "myListing",
+      //   element: (
+      //     <PrivateRoute>
+      //       <MyListing></MyListing>
+      //     </PrivateRoute>
+      //   ),
+      //   loader: () => fetch("https://roommate-finder-server-eight.vercel.app/allAds"),
+      //   hydrateFallbackElement: <Loading></Loading>,
+      // },
       {
         path: "browseListing",
         element: <BrowseListing></BrowseListing>,
@@ -102,14 +103,39 @@ const router = createBrowserRouter([
     ],
   },
   {
-        path: "/profile",
+    path: "/dashboard",
+    element: (
+      <PrivateRoute>
+        <DashBoard></DashBoard>
+      </PrivateRoute>
+    ),
+    children: [
+      {
+        path: "/dashboard/addRoommate",
+        element: <PrivateRoute>
+          <AddRoommate></AddRoommate>
+        </PrivateRoute>,
+      },
+      {
+        path: "/dashboard/myListing",
+        element: <PrivateRoute>
+          <MyListing></MyListing>
+        </PrivateRoute>,
+        loader: () => fetch("https://roommate-finder-server-eight.vercel.app/allAds"),
+        hydrateFallbackElement: <Loading></Loading>,
+      },
+      {
+        path: "/dashboard/profile",
         element: (
           <PrivateRoute>
             <Profile></Profile>
           </PrivateRoute>
         ),
+        loader: () => fetch("https://roommate-finder-server-eight.vercel.app/allAds"),
         hydrateFallbackElement: <Loading></Loading>,
       },
+    ],
+  },
   {
     path: "/*",
     element: <ErrorPage></ErrorPage>,

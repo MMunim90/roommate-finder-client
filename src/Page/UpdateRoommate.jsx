@@ -47,7 +47,7 @@ const UpdateRoommate = () => {
             text: `Update ${name} Details Successfully`,
             draggable: true,
           });
-          navigate("/myListing");
+          navigate("/dashboard/myListing");
         }
       });
   };
@@ -207,7 +207,7 @@ const UpdateRoommate = () => {
             value=" Update"
           />
           <h1 className="btn font-bold text-lg border-black border-2">
-            <Link to="/myListing">Cancel</Link>
+            <Link to="/dashboard/myListing">Cancel</Link>
           </h1>
         </div>
       </form>

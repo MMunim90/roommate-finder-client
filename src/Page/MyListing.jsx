@@ -64,9 +64,11 @@ const MyListing = () => {
         <title>My Listing | Find Mate</title>
       </Helmet>
       <Fade direction="down" keyframes={slightFadeDown}>
-        <div className="my-10 text-center text-2xl font-bold">
-          My Total Ad : {myAds.length}
-        </div>
+        <div className="text-center bg-gradient-to-r mb-12 from-gray-400 to-gray-700 py-12 px-6 rounded-lg shadow-lg text-white">
+              <h2 className="text-5xl font-extrabold mb-4">
+                My Added Posts : {myAds.length}
+              </h2>
+            </div>
       </Fade>
 
       <div>

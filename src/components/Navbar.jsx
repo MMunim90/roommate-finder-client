@@ -4,7 +4,7 @@ import { toast } from "react-toastify";
 import { AuthContext } from "../Provider/AuthProvider";
 import { SiBookmyshow } from "react-icons/si";
 import { CgBrowse, CgProfile } from "react-icons/cg";
-import { MdDarkMode, MdPlaylistAddCircle } from "react-icons/md";
+import { MdDarkMode, MdOutlineSpaceDashboard, MdPlaylistAddCircle } from "react-icons/md";
 import { FaHome, FaUserFriends } from "react-icons/fa";
 import { BiLogOut, BiSupport } from "react-icons/bi";
 import Swal from "sweetalert2";
@@ -100,6 +100,21 @@ const Navbar = () => {
                 Browse Listing
               </NavLink>
             </li>
+             {user ? (
+            <li>
+              <NavLink
+                className={({ isActive }) =>
+                  isActive ? "border-b-2 border-black" : ""
+                }
+                to="/dashboard"
+              >
+                <MdOutlineSpaceDashboard />
+                Dashboard
+              </NavLink>
+            </li>
+          ) : (
+            ""
+          )}
             <li>
               <NavLink
                 className={({ isActive }) =>
@@ -122,7 +137,7 @@ const Navbar = () => {
                 Terms
               </NavLink>
             </li>
-            {user ? (
+            {/* {user ? (
               <li>
                 <NavLink
                   className={({ isActive }) =>
@@ -151,7 +166,7 @@ const Navbar = () => {
               </li>
             ) : (
               ""
-            )}
+            )} */}
           </ul>
         </div>
         <div className="flex items-center">
@@ -200,6 +215,21 @@ const Navbar = () => {
               Browse Listing
             </NavLink>
           </li>
+          {user ? (
+            <li>
+              <NavLink
+                className={({ isActive }) =>
+                  isActive ? "border-b-2 border-black" : ""
+                }
+                to="/dashboard"
+              >
+                <MdOutlineSpaceDashboard />
+                Dashboard
+              </NavLink>
+            </li>
+          ) : (
+            ""
+          )}
           <li>
             <NavLink
               className={({ isActive }) =>
@@ -222,7 +252,7 @@ const Navbar = () => {
               Terms
             </NavLink>
           </li>
-          {user ? (
+          {/* {user ? (
             <li>
               <NavLink
                 className={({ isActive }) =>
@@ -251,7 +281,7 @@ const Navbar = () => {
             </li>
           ) : (
             ""
-          )}
+          )} */}
         </ul>
       </div>
       <div className="navbar-end">
@@ -302,7 +332,7 @@ const Navbar = () => {
                   User : {user && user.displayName}
                 </a>
               </li>
-              {user ? (
+              {/* {user ? (
                 <NavLink
                   to="/profile"
                   className="btn bg-black text-white cursor-pointer text-xl"
@@ -312,7 +342,7 @@ const Navbar = () => {
                 </NavLink>
               ) : (
                 ""
-              )}
+              )} */}
               <button className="btn bg-black text-white cursor-pointer">
                 <label className="swap swap-rotate">
                   <input type="checkbox" onClick={handleToggle} />

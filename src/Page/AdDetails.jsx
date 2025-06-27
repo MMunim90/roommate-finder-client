@@ -2,11 +2,12 @@ import React, { use, useState } from "react";
 import toast from "react-hot-toast";
 import { AiFillLike, AiOutlineLike } from "react-icons/ai";
 import { FaArrowLeftLong } from "react-icons/fa6";
-import { Link, useLoaderData } from "react-router";
+import { Link, useLoaderData, useNavigate } from "react-router";
 import { AuthContext } from "../Provider/AuthProvider";
 import { Helmet } from "react-helmet-async";
 
 const AdDetails = () => {
+  const navigate = useNavigate();
   const [liked, setLiked] = useState(false);
   const { user } = use(AuthContext);
   const allAds = useLoaderData();
@@ -127,7 +128,7 @@ const AdDetails = () => {
       <div className="font-bold text-xl py-6 text-center">
         <div className="btn border-2 border-black text-xl">
           <FaArrowLeftLong className="inline" /> &nbsp;
-          <Link to="/">Back to home</Link>
+          <Link onClick={() => navigate(-1)}>Back</Link>
         </div>
       </div>
     </div>
