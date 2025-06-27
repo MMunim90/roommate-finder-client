@@ -144,24 +144,27 @@ const Navbar = () => {
               className={({ isActive }) =>
                 isActive ? "border-b-2 border-black" : ""
               }
-              to="/addRoommate"
-            >
-              <MdPlaylistAddCircle />
-              Add to Find
-            </NavLink>
-          </li>
-          <li>
-            <NavLink
-              className={({ isActive }) =>
-                isActive ? "border-b-2 border-black" : ""
-              }
               to="/browseListing"
             >
               <CgBrowse />
               Browse Listing
             </NavLink>
           </li>
-          <li>
+          {
+            user ? (<li>
+            <NavLink
+              className={({ isActive }) =>
+                isActive ? "border-b-2 border-black" : ""
+              }
+              to="/addRoommate"
+            >
+              <MdPlaylistAddCircle />
+              Add to Find
+            </NavLink>
+          </li>) : ''
+          }
+          {
+            user ? (<li>
             <NavLink
               className={({ isActive }) =>
                 isActive ? "border-b-2 border-black" : ""
@@ -171,7 +174,8 @@ const Navbar = () => {
               <SiBookmyshow />
               My Listings
             </NavLink>
-          </li>
+          </li>) : ''
+          }
         </ul>
       </div>
       <div className="navbar-end">
