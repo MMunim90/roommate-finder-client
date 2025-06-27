@@ -66,7 +66,7 @@ const Profile = () => {
 
             <div className="text-center bg-gradient-to-r from-gray-400 to-gray-700 py-12 px-6 rounded-lg shadow-lg text-white">
               <h2 className="text-5xl font-extrabold mb-4">
-                My Total Ad : {myAds.length}
+                My Posts : {myAds.length}
               </h2>
             </div>
           </div>
