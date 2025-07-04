@@ -1,7 +1,19 @@
 import React from "react";
 import { Helmet } from "react-helmet-async";
+import { keyframes } from "@emotion/react";
+import { Fade } from "react-awesome-reveal";
 
 const Faq = () => {
+  const slightFadeDown = keyframes`
+  from {
+    opacity: 0;
+    transform: translateY(-30px); 
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+`;
   const faqs = [
     {
       question: "What is Find Mate?",
@@ -31,21 +43,29 @@ const Faq = () => {
   ];
 
   return (
-    <div className="max-w-4xl mx-auto p-6 my-10 bg-gray-400 rounded-lg shadow-md">
+    <div>
       <Helmet>
         <title>FAQ's | Find Mate</title>
       </Helmet>
-      <h2 className="text-3xl font-semibold mb-6">
-        Frequently Asked Questions
-      </h2>
-      <div className="space-y-4">
-        {faqs.map((faq, index) => (
-          <div key={index} className="bg-white p-4 rounded shadow text-black">
-            <h3 className="text-xl font-semibold mb-2">{faq.question}</h3>
-            <p>{faq.answer}</p>
+
+      <Fade direction="down" keyframes={slightFadeDown}>
+        <div className="max-w-4xl mx-auto p-6 my-10 bg-gray-400 rounded-lg shadow-md">
+          <h2 className="text-3xl font-semibold mb-6">
+            Frequently Asked Questions
+          </h2>
+          <div className="space-y-4">
+            {faqs.map((faq, index) => (
+              <div
+                key={index}
+                className="bg-white p-4 rounded shadow text-black"
+              >
+                <h3 className="text-xl font-semibold mb-2">{faq.question}</h3>
+                <p>{faq.answer}</p>
+              </div>
+            ))}
           </div>
-        ))}
-      </div>
+        </div>
+      </Fade>
     </div>
   );
 };

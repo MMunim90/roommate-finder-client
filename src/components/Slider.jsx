@@ -17,7 +17,7 @@ const Slider = () => {
       scrollbar={{ draggable: true }}
     >
       <SwiperSlide>
-        <div className="relative w-full h-[220px] md:h-[300px] lg:h-[400px] xl:h-[450px]">
+        <div className="relative w-full h-[220px] md:h-[400px] lg:h-[700px]">
           <div
             className="absolute inset-0 bg-cover bg-center"
             style={{
@@ -49,7 +49,7 @@ const Slider = () => {
       </SwiperSlide>
 
       <SwiperSlide>
-        <div className="relative w-full h-[220px] md:h-[300px] lg:h-[400px] xl:h-[450px]">
+        <div className="relative w-full h-[220px] md:h-[400px] lg:h-[700px]">
           <div
             className="absolute inset-0 bg-cover bg-center"
             style={{
@@ -79,7 +79,7 @@ const Slider = () => {
       </SwiperSlide>
 
       <SwiperSlide>
-        <div className="relative w-full h-[220px] md:h-[300px] lg:h-[400px] xl:h-[450px]">
+        <div className="relative w-full h-[220px] md:h-[400px] lg:h-[700px]">
           <div
             className="absolute inset-0 bg-cover bg-center"
             style={{
@@ -110,7 +110,7 @@ const Slider = () => {
       </SwiperSlide>
 
       <SwiperSlide>
-        <div className="relative w-full h-[220px] md:h-[300px] lg:h-[400px] xl:h-[450px]">
+        <div className="relative w-full h-[220px] md:h-[400px] lg:h-[700px]">
           <div
             className="absolute inset-0 bg-cover bg-center"
             style={{

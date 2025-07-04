@@ -5,7 +5,7 @@ import { Link } from "react-router";
 const Footer = () => {
   return (
     <div>
-      <footer className="footer sm:footer-horizontal bg-gray-400 text-base-content py-6 px-10 rounded-t-3xl">
+      <footer className="footer sm:footer-horizontal bg-gray-400 text-base-content py-6 px-10">
         <nav>
           <h6 className="footer-title">Contact</h6>
           <a className="link link-hover">+880 454478824</a>

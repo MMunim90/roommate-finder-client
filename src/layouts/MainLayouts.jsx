@@ -19,7 +19,7 @@ const MainLayouts = () => {
   }
 `;
   return (
-    <div className="w-11/12 mx-auto">
+    <div>
       <div className="sticky top-0 z-10">
         <Header></Header>
       </div>
@@ -28,7 +28,7 @@ const MainLayouts = () => {
             <Slider />
         </Fade>
       )}
-      <div>
+      <div className="w-11/12 mx-auto min-h-screen">
         <Outlet></Outlet>
       </div>
       <Footer></Footer>
